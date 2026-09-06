@@ -40,4 +40,19 @@ describe("copy", () => {
     ].join(" ");
     expect(homeCaps).not.toMatch(/YOLO|Transmilenio/i);
   });
+
+  it("names the TORNS chapter film chrome", () => {
+    expect(copy.chapterProduct).toBe("Producto");
+    expect(copy.chapterSystem).toBe("Sistema");
+    expect(copy.chapterCase).toBe("Caso");
+    expect(copy.chapterClose).toBe("Cierre");
+    expect(copy.questionProgress).toBe("Pregunta {n} de 10");
+    expect(copy.controlPrev).toBe("Anterior");
+    expect(copy.controlNext).toBe("Siguiente");
+    expect(copy.detectHint).toBe("Detección, no un conteo de operador.");
+    expect(copy.actEspera).toBe("Espera");
+    expect(copy.actVe).toBe("Ve");
+    expect(copy.actMide).toBe("Mide");
+    expect(copy.actActua).toBe("Actúa");
+  });
 });
