@@ -1,19 +1,25 @@
 export const copy = {
   lirnName: "LIRN",
   oficio: "Empresa de movilidad",
-  mission: "Hacer que el transporte masivo ajuste su oferta a la demanda real de cada estación, midiendo quién espera ahora y no solo lo que el horario predijo.",
-  vision: "Que cada estación de un sistema masivo opere con la demanda que ocurre, no con la que se supuso.",
+  mission:
+    "Hacer que el transporte masivo ajuste su oferta a la demanda real de cada estación, midiendo quién espera ahora y no solo lo que el horario predijo.",
+  vision:
+    "Que cada estación de un sistema masivo opere con la demanda que ocurre, no con la que se supuso.",
   tornsName: "TORNS",
   byLirn: "by LIRN",
   tornsOficio: "Demanda real en estación. Oferta ajustada al control.",
-  productWhat: "Demanda medida en estación. Recomendación de oferta al centro de control.",
+  productWhat:
+    "Demanda medida en estación. Recomendación de oferta al centro de control.",
   whyTitle: "La oferta no sigue a la estación",
-  whyBody: "En un sistema masivo, la frecuencia y la capacidad se fijan por horario e histórico. La estación cambia. Una se satura. Otra viaja vacía. Quien espera paga el desajuste.",
-  whyFoot: "Contexto: congestión y desajuste de oferta en Transmilenio, Bogotá. Problema público. No es un piloto ni un cliente.",
+  whyBody:
+    "En un sistema masivo, la frecuencia y la capacidad se fijan por horario e histórico. La estación cambia. Una se satura. Otra viaja vacía. Quien espera paga el desajuste.",
+  whyFoot:
+    "Contexto: congestión y desajuste de oferta en Transmilenio, Bogotá. Problema público. No es un piloto ni un cliente.",
   problemLabel: "PROBLEMA",
   solutionLabel: "SOLUCIÓN",
   solutionTitle: "TORNS mide la estación y recomienda la oferta",
-  solutionBody: "Cámaras en estación. Conteo de demanda. Recomendación de frecuencia y capacidad al centro de control. El operador ve ocupación, no un promedio.",
+  solutionBody:
+    "Cámaras en estación. Conteo de demanda. Recomendación de frecuencia y capacidad al centro de control. El operador ve ocupación, no un promedio.",
   factOccupation: "Ve la ocupación.",
   factCamera: "Ve la cámara con detección.",
   factRecommend: "Recibe la recomendación.",
@@ -24,4 +30,37 @@ export const copy = {
   notFound: "Esta página no existe.",
   navLirn: "LIRN",
   navTorns: "TORNS",
+  navEmpresa: "Empresa",
+  navContacto: "Contacto",
+  ctaTalk: "Hablemos",
+  heroHeadline: "Oferta que responde a la estación.",
+  heroSupport:
+    "LIRN vende la capacidad de medir demanda real en sistemas masivos y convertirla en recomendación operativa.",
+  aboutTitle: "Movilidad con demanda medida.",
+  aboutBody:
+    "LIRN es la empresa. TORNS es el producto. Medimos quién espera ahora y proponemos cómo ajustar frecuencia y capacidad al centro de control.",
+  approachTitle: "Cómo trabajamos",
+  approach1: "Medir la estación",
+  approach1Body: "Cámaras y conteo de demanda en el andén.",
+  approach2: "Ver la ocupación",
+  approach2Body: "El operador observa lo que ocurre, no solo el horario.",
+  approach3: "Recomendar la oferta",
+  approach3Body: "Frecuencia y capacidad propuestas al despacho.",
+  capabilitiesTitle: "Capacidades del producto",
+  cap1: "Fuentes de video por estación",
+  cap2: "Detección y conteo en vivo",
+  cap3: "Monitoreo y métricas en tiempo real",
+  cap4: "Recomendación de despacho",
+  industriesTitle: "Sistemas con estaciones",
+  industries:
+    "Metro · BRT · Tren · Cualquier red masiva donde la demanda ocurre en andén.",
+  diffTitle: "Demanda medida. Oferta ajustada.",
+  diff1: "Mecanismo en estación, no solo histórico",
+  diff2: "Producto para el centro de control",
+  diff3: "Problema público de referencia, sin inventar clientes",
+  contactTitle: "Hablemos del sistema que opera.",
+  contactBody:
+    "Cuéntenos el sistema masivo y el rol de control. Publicaremos el canal de contacto cuando esté listo; hasta entonces, deje su interés en este espacio.",
+  contactNote: "Canal de envío pendiente de publicar.",
+  footerBlurb: "Empresa de movilidad. Producto TORNS.",
 } as const;

@@ -7,9 +7,10 @@ describe("copy", () => {
     expect(copy.vision).toContain("la demanda que ocurre");
   });
 
-  it("endorses TORNS without a conversion CTA", () => {
+  it("endorses TORNS and allows contact without buy or demo", () => {
     expect(copy.byLirn).toBe("by LIRN");
+    expect(copy.ctaTalk).toBe("Hablemos");
     const blob = Object.values(copy).join(" ");
-    expect(blob.toLowerCase()).not.toMatch(/comprar|demo|contáct|newsletter/);
+    expect(blob.toLowerCase()).not.toMatch(/comprar|demo|newsletter/);
   });
 });
