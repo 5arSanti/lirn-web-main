@@ -8,4 +8,5 @@ it("renders the controller interview with the research label", () => {
   expect(screen.getByText(evidence.interviewRole)).toBeInTheDocument();
   expect(screen.getByText(evidence.turns[0].question)).toBeInTheDocument();
   expect(screen.getByText(evidence.label)).toBeInTheDocument();
+  expect(screen.queryByText(evidence.turns[7].question)).not.toBeInTheDocument();
 });
