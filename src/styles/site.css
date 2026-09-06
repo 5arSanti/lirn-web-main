@@ -998,3 +998,138 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+.torns-on-air {
+  background: var(--torns-air);
+  color: var(--black);
+}
+
+.torns-on-air .prose,
+.torns-on-air .pipeline li p,
+.torns-on-air .torns-act-copy p {
+  color: color-mix(in srgb, var(--black) 78%, transparent);
+}
+
+.torns-chapter-rail {
+  position: sticky;
+  top: 4.5rem;
+  z-index: 3;
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.75rem var(--gutter);
+  background: color-mix(in srgb, var(--torns-deep) 92%, transparent);
+}
+
+.torns-chapter-rail a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.torns-chapter-rail a:hover,
+.torns-chapter-rail a:focus-visible {
+  color: var(--activity);
+}
+
+.torns-act-stage,
+.torns-case-story {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 1fr);
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.torns-act-photo {
+  height: 22rem;
+  transition: clip-path 400ms var(--ease);
+}
+
+.torns-qual-bar {
+  display: block;
+  height: 6px;
+  margin: 0.4rem 0 1rem;
+  background: var(--activity);
+}
+
+.torns-qual-bar[data-qual="expected"] {
+  width: 42%;
+  opacity: 0.45;
+}
+
+.torns-qual-bar[data-qual="real"] {
+  width: 88%;
+}
+
+.torns-stage-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.torns-chart {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.torns-chart-fill {
+  height: 6px;
+  background: var(--activity);
+  transition: width 500ms var(--ease);
+}
+
+.torns-chart-hero-number {
+  margin: 0;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.torns-act-tag,
+.torns-act-index {
+  margin: 0;
+  color: var(--activity-ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page-torns .hero-torns-photo img,
+.page-torns .problem-photo img,
+.page-torns .case-photo img,
+.page-torns .system-photo img,
+.page-torns .torns-act-photo img {
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .torns-chart-fill,
+  .torns-act-photo,
+  .signal-node {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (max-width: 52rem) {
+  .torns-act-stage,
+  .torns-case-story {
+    grid-template-columns: 1fr;
+  }
+
+  .torns-pipeline .pipeline {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .torns-pipeline .pipeline li {
+    min-width: 10rem;
+  }
+}
