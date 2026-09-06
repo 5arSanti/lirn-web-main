@@ -14,6 +14,12 @@ it("states mission, vision, and TORNS as the product", () => {
   expect(screen.getByText(copy.mission)).toBeInTheDocument();
   expect(screen.getByText(copy.vision)).toBeInTheDocument();
   expect(screen.getByText(copy.byLirn)).toBeInTheDocument();
+  expect(screen.getByText(copy.slogan)).toBeInTheDocument();
+  expect(screen.getByText(copy.esenciaTitle)).toBeInTheDocument();
+  expect(screen.getByText(copy.signalLine)).toBeInTheDocument();
+  expect(
+    screen.getAllByRole("link", { name: copy.ctaTalk }).length,
+  ).toBeGreaterThan(0);
   expect(
     screen.getAllByRole("link", { name: copy.navTorns })[0],
   ).toHaveAttribute("href", "/torns");

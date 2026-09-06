@@ -8,12 +8,9 @@ export function SiteNav() {
         {copy.navLirn}
       </Link>
       <div className="site-nav-links">
-        <Link to={{ pathname: "/", hash: "empresa" }}>{copy.navEmpresa}</Link>
+        <Link to="/#empresa">{copy.navEmpresa}</Link>
         <Link to="/torns">{copy.navTorns}</Link>
-        <Link
-          className="site-nav-cta"
-          to={{ pathname: "/", hash: "contacto" }}
-        >
+        <Link className="site-nav-cta" to="/#contacto">
           {copy.ctaTalk}
         </Link>
       </div>

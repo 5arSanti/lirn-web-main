@@ -808,3 +808,382 @@
     min-height: 24rem;
   }
 }
+
+/* LIRN brochure */
+.site-nav {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.site-nav-brand {
+  color: var(--navy);
+  font-family: var(--font);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.site-nav-links a {
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: var(--coral);
+}
+
+.site-nav-links .site-nav-cta {
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  border-radius: var(--radius-cta);
+  background: var(--amber);
+  color: var(--navy) !important;
+}
+
+.site-nav-links .site-nav-cta:hover {
+  background: var(--coral);
+  color: var(--paper) !important;
+}
+
+.page {
+  padding-top: var(--rail);
+  font-family: var(--font);
+}
+
+.lirn-home {
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.lirn-home .hero {
+  min-height: min(52rem, calc(100dvh - var(--rail)));
+  align-content: center;
+  padding: clamp(4rem, 10vw, 8rem) var(--gutter);
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.lirn-home .hero::after {
+  content: "";
+  position: absolute;
+  right: clamp(-8rem, -6vw, -2rem);
+  bottom: clamp(-9rem, -12vw, -4rem);
+  width: clamp(17rem, 38vw, 34rem);
+  aspect-ratio: 1;
+  border: clamp(2.5rem, 6vw, 5rem) solid var(--amber);
+  border-radius: 50%;
+  opacity: 0.96;
+}
+
+.lirn-home .hero-copy {
+  max-width: 58rem;
+}
+
+.lirn-home .hero-brand {
+  color: var(--amber);
+  font-family: var(--font);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.lirn-home .hero-headline {
+  max-width: 11ch;
+  font-family: var(--font);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.lirn-home .hero-headline span {
+  display: block;
+}
+
+.lirn-home .hero-support {
+  max-width: 53ch;
+  color: color-mix(in srgb, var(--paper) 78%, var(--navy));
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 500;
+}
+
+.hero-actions {
+  gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-cta);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.btn-primary {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+.btn-primary:hover {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+.btn-secondary {
+  border: 1px solid color-mix(in srgb, var(--paper) 55%, transparent);
+  color: var(--paper);
+}
+
+.btn-secondary:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.hero-route {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(2rem, 5vw, 4rem);
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto clamp(3rem, 8vw, 7rem) auto;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--paper);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.hero-route i {
+  height: 0.2rem;
+  background: var(--coral);
+}
+
+.signal {
+  padding: 1.4rem var(--gutter);
+  background: var(--coral);
+  color: var(--paper);
+  text-align: center;
+}
+
+.signal p {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.8vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.esencia-shell {
+  padding: clamp(4rem, 8vw, 7rem) var(--gutter);
+  background: var(--paper);
+}
+
+.lirn-home .esencia {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem);
+  border-radius: clamp(1.5rem, 4vw, 3rem);
+  background: var(--amber);
+  color: var(--navy);
+}
+
+.lirn-home .esencia h2 {
+  max-width: 12ch;
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.lirn-home .esencia-slogan {
+  max-width: 31ch;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 700;
+}
+
+.lirn-home .esencia-grid {
+  border-top: 1px solid color-mix(in srgb, var(--navy) 22%, transparent);
+  padding-top: 2rem;
+}
+
+.lirn-home .esencia-grid h3 {
+  color: var(--navy);
+}
+
+.lirn-home .esencia .btn-primary {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.lirn-home .esencia .btn-primary:hover {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+.lirn-home .section {
+  padding: clamp(4rem, 9vw, 7.5rem) var(--gutter);
+}
+
+.lirn-home .section-grid {
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(18rem, 1.2fr);
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.lirn-home .display {
+  font-family: var(--font);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.lirn-home .lede,
+.lirn-home .prose {
+  max-width: 65ch;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.lirn-home .section-paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.product-section {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.lirn-home .product-band {
+  grid-template-columns: 1fr auto;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+}
+
+.lirn-home .product-mark {
+  margin: 0 0 1.5rem;
+  color: var(--amber);
+  font-family: var(--font);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.lirn-home .by-lirn {
+  color: color-mix(in srgb, var(--paper) 70%, var(--navy));
+  font-family: var(--font);
+}
+
+.problem-section {
+  background: color-mix(in srgb, var(--amber) 12%, var(--paper));
+  color: var(--ink);
+}
+
+.context-note {
+  max-width: 65ch;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.contact-section {
+  background: var(--coral);
+  color: var(--paper);
+}
+
+.lirn-home .contact {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.lirn-home .contact .prose {
+  color: color-mix(in srgb, var(--paper) 85%, var(--coral));
+}
+
+.contact-note {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.lirn-home .contact-pending {
+  width: fit-content;
+  border: 1px solid color-mix(in srgb, var(--paper) 70%, transparent);
+  border-radius: var(--radius-cta);
+  color: var(--paper);
+}
+
+.site-footer {
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background: var(--navy-deep);
+  color: color-mix(in srgb, var(--paper) 72%, var(--navy));
+}
+
+.site-footer strong,
+.site-footer a {
+  color: var(--paper);
+  font-family: var(--font);
+  font-weight: 800;
+}
+
+.site-footer a {
+  text-underline-offset: 0.3em;
+}
+
+@media (max-width: 52rem) {
+  .lirn-home .section-grid,
+  .lirn-home .product-band {
+    grid-template-columns: 1fr;
+  }
+
+  .lirn-home .product-band {
+    align-items: start;
+  }
+
+  .hero-route {
+    display: none;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 36rem) {
+  .site-nav {
+    padding-inline: 1rem;
+  }
+
+  .site-nav-links a {
+    font-size: 0.75rem;
+  }
+
+  .site-nav-links .site-nav-cta {
+    padding: 0.6rem 0.85rem;
+  }
+
+  .lirn-home .hero {
+    min-height: 40rem;
+  }
+}
