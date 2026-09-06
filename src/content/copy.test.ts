@@ -10,7 +10,20 @@ describe("copy", () => {
   it("endorses TORNS and allows contact without buy or demo", () => {
     expect(copy.byLirn).toBe("by LIRN");
     expect(copy.ctaTalk).toBe("Hablemos");
-    const blob = Object.values(copy).join(" ");
-    expect(blob.toLowerCase()).not.toMatch(/comprar|demo|newsletter/);
+    const blob = Object.values(copy).join(" ").toLowerCase();
+    expect(blob).not.toMatch(/comprar|newsletter/);
+    expect(blob).not.toMatch(/\bdemo\b/);
+  });
+
+  it("publishes slogan and forbids buy/demo newsletter", () => {
+    expect(copy.slogan).toContain("estación");
+    expect(copy.ctaTalk).toBe("Hablemos");
+    const blob = Object.values(copy).join(" ").toLowerCase();
+    expect(blob).not.toMatch(/comprar|newsletter/);
+    expect(blob).not.toMatch(/\bdemo\b/);
+  });
+
+  it("labels product story as synthetic", () => {
+    expect(copy.syntheticNote.toLowerCase()).toMatch(/sintét|demostraci/);
   });
 });

@@ -33,6 +33,20 @@ export const copy = {
   navEmpresa: "Empresa",
   navContacto: "Contacto",
   ctaTalk: "Hablemos",
+  slogan: "Oferta que responde a la estación.",
+  heroLead: "Empresa de movilidad",
+  signalLine: "1 producto · sistemas masivos con estaciones",
+  esenciaTitle: "Nuestra esencia",
+  whoTitle: "Quiénes somos",
+  whoBody:
+    "LIRN es una empresa de movilidad. Ofrecemos TORNS para medir demanda real en estación y recomendar oferta al centro de control.",
+  verTorns: "Ver TORNS",
+  storyTitle: "Cómo opera TORNS",
+  storyOccupation: "Ve la ocupación.",
+  storyCamera: "Ve la cámara con detección.",
+  storyRecommend: "Recibe la recomendación.",
+  syntheticNote:
+    "Demostración sintética del producto. No es un piloto ni un cliente.",
   heroHeadline: "Oferta que responde a la estación.",
   heroSupport:
     "LIRN vende la capacidad de medir demanda real en sistemas masivos y convertirla en recomendación operativa.",
