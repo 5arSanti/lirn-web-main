@@ -20,6 +20,8 @@ export const copy = {
   companyBody:
     "LIRN es una firma de movilidad. Un producto. Sistemas masivos con estaciones.",
   purposeTitle: "Propósito",
+  missionLabel: "Misión",
+  visionLabel: "Visión",
   capabilityTitle: "Capacidad",
   capMeasure: "Medir",
   capMeasureBody:
@@ -30,6 +32,7 @@ export const copy = {
   capRecommendBody: "Frecuencia y capacidad propuestas al centro de control.",
   teaserTitle: "TORNS",
   teaserBody: "La oferta no sigue a la demanda real en estación.",
+  teaserLead: "Producto de LIRN para el centro de control.",
   contactTitle: "Hablemos del sistema que opera.",
   contactBody:
     "Cuéntenos el sistema masivo y el rol de control. Publicaremos el canal de contacto cuando esté listo.",
@@ -47,6 +50,19 @@ export const copy = {
     "Caso de estudio y prototipo aplicado al problema de Transmilenio.",
   caseNotPilot: "No es un piloto firmado con el operador.",
   caseScope: "Los mismos fundamentos aplican a metro, BRT o tren.",
+  storyTitle: "De la estación al despacho",
+  storyWaitTitle: "La estación no espera",
+  storyWaitBody:
+    "La oferta se fija por horario e histórico. El andén cambia. Quien espera paga el desajuste.",
+  storySeeTitle: "La cámara ve la estación",
+  storySeeBody:
+    "TORNS toma la estación como fuente. Cámaras por andén. Presencia visible, no un promedio.",
+  storyMeasureTitle: "La demanda se cuenta",
+  storyMeasureBody:
+    "YOLOv11 detecta y cuenta quién está ahora. Frames y métricas viajan por WebSocket.",
+  storyActTitle: "El control recibe la oferta",
+  storyActBody:
+    "Frecuencia y capacidad propuestas al despacho. El operador ve ocupación y actúa.",
   systemTitle: "Cómo funciona",
   systemSteps: [
     "Observar",
@@ -55,6 +71,14 @@ export const copy = {
     "Analizar",
     "Recomendar",
     "Optimizar",
+  ],
+  systemStepBodies: [
+    "Cámara en estación.",
+    "Persona en el andén.",
+    "Conteo de demanda.",
+    "Estado por estación.",
+    "Frecuencia y capacidad.",
+    "Ajuste de oferta.",
   ],
   capabilitiesTitle: "El prototipo",
   cap1: "Fuentes de video por estación",

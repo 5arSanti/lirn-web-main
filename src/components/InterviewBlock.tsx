@@ -3,7 +3,7 @@ import { evidence } from "../content/evidence";
 
 export function InterviewBlock() {
   return (
-    <section className="band torns-discovery" aria-labelledby="discovery-title">
+    <section className="band torns-discovery torns-on-white" aria-labelledby="discovery-title">
       <h2 id="discovery-title" className="display">
         {copy.discoveryTitle}
       </h2>

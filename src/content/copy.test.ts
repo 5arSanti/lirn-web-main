@@ -12,6 +12,8 @@ describe("copy", () => {
   });
 
   it("positions LIRN with the locked hero and contact rules", () => {
+    expect(copy.missionLabel).toBe("Misión");
+    expect(copy.visionLabel).toBe("Visión");
     expect(copy.heroHeadline).toBe("La demanda no espera.");
     expect(copy.byLirn).toBe("by LIRN");
     expect(copy.ctaTalk).toBe("Hablemos");

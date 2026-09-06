@@ -14,8 +14,11 @@ it("speaks as the firm and teasers TORNS without the case file", () => {
   expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
     copy.heroHeadline,
   );
+  expect(screen.getByRole("heading", { name: copy.missionLabel })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: copy.visionLabel })).toBeInTheDocument();
   expect(screen.getByText(copy.mission)).toBeInTheDocument();
   expect(screen.getByText(copy.vision)).toBeInTheDocument();
+  expect(screen.getByText(copy.teaserLead)).toBeInTheDocument();
   expect(screen.getByText(copy.companyBody)).toBeInTheDocument();
   expect(screen.getByText(copy.capMeasure)).toBeInTheDocument();
   expect(screen.getByText(copy.teaserBody)).toBeInTheDocument();

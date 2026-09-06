@@ -7,6 +7,28 @@ import { SurveyBlock } from "../components/SurveyBlock";
 import { copy } from "../content/copy";
 
 const CAPABILITIES = [copy.cap1, copy.cap2, copy.cap3, copy.cap4];
+const STORY = [
+  {
+    title: copy.storyWaitTitle,
+    body: copy.storyWaitBody,
+    file: "image-2.jfif",
+  },
+  {
+    title: copy.storySeeTitle,
+    body: copy.storySeeBody,
+    file: "image-5.jfif",
+  },
+  {
+    title: copy.storyMeasureTitle,
+    body: copy.storyMeasureBody,
+    file: "image-6.jfif",
+  },
+  {
+    title: copy.storyActTitle,
+    body: copy.storyActBody,
+    file: "image-7.jfif",
+  },
+] as const;
 
 export function TornsPage() {
   return (
@@ -34,7 +56,7 @@ export function TornsPage() {
         <StationPhoto file="torns-hero.jpg" className="hero-torns-photo" />
       </section>
 
-      <section className="torns-problem">
+      <section className="torns-problem torns-on-white">
         <StationPhoto file="image-4.jfif" className="problem-photo" />
         <div className="problem-copy">
           <h2 className="display">{copy.problemTitle}</h2>
@@ -55,13 +77,30 @@ export function TornsPage() {
         <StationPhoto file="image-1.jfif" className="case-photo" />
       </section>
 
+      <section className="torns-story torns-on-white" aria-labelledby="story-title">
+        <h2 id="story-title" className="display">
+          {copy.storyTitle}
+        </h2>
+        <ol className="story-list">
+          {STORY.map((act, index) => (
+            <li key={act.title} className="story-act">
+              <StationPhoto file={act.file} className="story-photo" />
+              <p className="story-index">0{index + 1}</p>
+              <h3>{act.title}</h3>
+              <p>{act.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="torns-system">
         <h2 className="display">{copy.systemTitle}</h2>
         <ol className="pipeline">
-          {copy.systemSteps.map((step) => (
+          {copy.systemSteps.map((step, index) => (
             <li key={step}>
               <span className="signal-node" aria-hidden="true" />
-              {step}
+              <strong>{step}</strong>
+              <p>{copy.systemStepBodies[index]}</p>
             </li>
           ))}
         </ol>
@@ -81,8 +120,8 @@ export function TornsPage() {
       <InterviewBlock />
       <SurveyBlock />
 
-      <section className="torns-close">
-        <BrandMark variant="wordmark" on="dark" className="mark-close" />
+      <section className="torns-close torns-on-white">
+        <BrandMark variant="wordmark" on="light" className="mark-close" />
         <h2 className="display">{copy.close}</h2>
         <Link
           className="btn-primary"

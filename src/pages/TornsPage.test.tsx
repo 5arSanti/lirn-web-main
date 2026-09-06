@@ -22,6 +22,9 @@ it("explains the product, the Transmilenio case, and the team evidence", () => {
   expect(screen.getByText(copy.caseFrame)).toBeInTheDocument();
   expect(screen.getByText(copy.caseNotPilot)).toBeInTheDocument();
   expect(screen.getByText(copy.caseScope)).toBeInTheDocument();
+  expect(screen.getByText(copy.storyTitle)).toBeInTheDocument();
+  expect(screen.getByText(copy.storySeeTitle)).toBeInTheDocument();
+  expect(screen.getByText(copy.storyActBody)).toBeInTheDocument();
   for (const step of copy.systemSteps) {
     expect(screen.getByText(step)).toBeInTheDocument();
   }

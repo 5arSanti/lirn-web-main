@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { BrandMark } from "../components/BrandMark";
+import { ByLirn } from "../components/ByLirn";
 import { StationPhoto } from "../components/StationPhoto";
 import { copy } from "../content/copy";
 
@@ -9,6 +10,12 @@ export function HomePage() {
       <section className="hero-lirn" aria-labelledby="home-title">
         <StationPhoto file="lirn-hero.jpg" className="hero-lirn-photo" />
         <div className="signal-field" aria-hidden="true" />
+        <BrandMark
+          variant="icon"
+          on="dark"
+          className="mark-watermark"
+          decorative
+        />
         <div className="hero-lirn-copy">
           <BrandMark variant="wordmark" on="dark" className="mark-display" />
           <h1 id="home-title" className="hero-headline">
@@ -35,19 +42,18 @@ export function HomePage() {
       </section>
 
       <section className="purpose-lirn" aria-labelledby="purpose-title">
-        <StationPhoto file="image-2.jfif" className="purpose-photo" />
-        <div className="purpose-copy">
-          <h2 id="purpose-title" className="display">
-            {copy.purposeTitle}
-          </h2>
-          <div className="purpose-pair">
-            <blockquote>
-              <p>{copy.mission}</p>
-            </blockquote>
-            <blockquote>
-              <p>{copy.vision}</p>
-            </blockquote>
-          </div>
+        <h2 id="purpose-title" className="display">
+          {copy.purposeTitle}
+        </h2>
+        <div className="purpose-pair">
+          <article className="purpose-card purpose-mission">
+            <h3>{copy.missionLabel}</h3>
+            <p>{copy.mission}</p>
+          </article>
+          <article className="purpose-card purpose-vision">
+            <h3>{copy.visionLabel}</h3>
+            <p>{copy.vision}</p>
+          </article>
         </div>
       </section>
 
@@ -76,9 +82,15 @@ export function HomePage() {
 
       <section className="teaser-lirn">
         <div className="teaser-copy">
-          <BrandMark variant="icon" on="dark" className="mark-teaser" />
-          <h2 className="display">{copy.teaserTitle}</h2>
-          <p className="lede">{copy.teaserBody}</p>
+          <p className="endorsement">
+            <BrandMark variant="icon" on="dark" className="mark-teaser" />
+            <span className="hero-brand">
+              {copy.teaserTitle}
+              <ByLirn />
+            </span>
+          </p>
+          <p className="lede">{copy.teaserLead}</p>
+          <p className="prose">{copy.teaserBody}</p>
           <Link className="btn-primary" to="/torns">
             {copy.verTorns}
           </Link>
