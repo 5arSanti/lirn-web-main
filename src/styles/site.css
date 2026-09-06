@@ -617,3 +617,194 @@
     grid-template-columns: 1fr;
   }
 }
+
+#producto-vivo {
+  scroll-margin-top: calc(var(--rail) + 1.5rem);
+}
+
+.product-story {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.5fr) minmax(18rem, 1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  padding: clamp(3rem, 8vw, 6rem) var(--gutter);
+  background: var(--surface-dark);
+  color: var(--paper);
+}
+
+.product-story-heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.synthetic-note {
+  max-width: 32rem;
+  margin: 1rem 0 0;
+  color: color-mix(in srgb, var(--paper) 65%, transparent);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.product-story-steps {
+  grid-column: 1;
+  display: grid;
+  align-self: start;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+}
+
+.product-story-steps button {
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+  background: transparent;
+  color: color-mix(in srgb, var(--paper) 55%, transparent);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.product-story-steps button[aria-current="step"] {
+  color: var(--paper);
+}
+
+.product-story-panel {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  align-content: space-between;
+  min-height: 28rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--civic);
+  border: 1px solid color-mix(in srgb, var(--civic-strong) 55%, transparent);
+  overflow: hidden;
+}
+
+.product-story-panel > p {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.product-story-panel > small {
+  color: color-mix(in srgb, var(--paper) 60%, transparent);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.product-story-visual {
+  display: grid;
+  align-content: center;
+  gap: 0.65rem;
+  min-height: 12rem;
+  margin: 2rem 0;
+}
+
+.occupation-value {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.occupation-track {
+  height: 0.75rem;
+  background: color-mix(in srgb, var(--surface-dark) 70%, transparent);
+}
+
+.occupation-track span {
+  display: block;
+  width: 72%;
+  height: 100%;
+  background: var(--civic-strong);
+}
+
+.occupation-panel > :last-child,
+.recommend-panel span {
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.camera-panel {
+  position: relative;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  padding: 1.5rem;
+  background:
+    linear-gradient(color-mix(in srgb, var(--civic-strong) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--civic-strong) 10%, transparent) 1px, transparent 1px),
+    var(--surface-dark);
+  background-size: 2rem 2rem;
+  border: 1px solid var(--civic-strong);
+}
+
+.camera-panel::before {
+  content: "";
+  position: absolute;
+  inset: 22% 54% 24% 18%;
+  border: 1px solid var(--civic-strong);
+}
+
+.camera-person,
+.camera-count {
+  position: relative;
+  z-index: 1;
+  color: var(--paper);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.camera-count {
+  color: var(--civic-strong);
+}
+
+.recommend-panel {
+  align-content: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--surface-dark);
+  border-left: 0.3rem solid var(--civic-strong);
+}
+
+.recommend-panel strong {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 52rem) {
+  .product-story {
+    grid-template-columns: 1fr;
+  }
+
+  .product-story-steps {
+    grid-column: 1;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-story-steps button {
+    padding-right: 0.75rem;
+  }
+
+  .product-story-panel {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 24rem;
+  }
+}
