@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { copy } from "../content/copy";
+import { StageControls } from "./StageControls";
 
 export function PipelineTrack() {
   const [index, setIndex] = useState(0);
@@ -19,24 +20,12 @@ export function PipelineTrack() {
           </li>
         ))}
       </ol>
-      <div className="torns-stage-controls">
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === 0}
-          onClick={() => setIndex((current) => Math.max(0, current - 1))}
-        >
-          {copy.controlPrev}
-        </button>
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === last}
-          onClick={() => setIndex((current) => Math.min(last, current + 1))}
-        >
-          {copy.controlNext}
-        </button>
-      </div>
+      <StageControls
+        atStart={index === 0}
+        atEnd={index === last}
+        onPrev={() => setIndex((current) => Math.max(0, current - 1))}
+        onNext={() => setIndex((current) => Math.min(last, current + 1))}
+      />
     </div>
   );
 }

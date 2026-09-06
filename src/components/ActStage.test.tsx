@@ -10,7 +10,10 @@ it("starts on act 1 and advances without wrapping", async () => {
 
   expect(screen.getByText(copy.storyWaitTitle)).toBeInTheDocument();
   expect(screen.queryByText(copy.storyActTitle)).not.toBeInTheDocument();
-  expect(screen.getByRole("button", { name: copy.controlPrev })).toBeDisabled();
+  expect(screen.getByRole("button", { name: copy.controlPrev })).toHaveAttribute(
+    "aria-disabled",
+    "true",
+  );
 
   await user.click(screen.getByRole("button", { name: copy.controlNext }));
   expect(screen.getByText(copy.storySeeTitle)).toBeInTheDocument();
@@ -21,7 +24,10 @@ it("starts on act 1 and advances without wrapping", async () => {
 
   await user.click(screen.getByRole("button", { name: copy.controlNext }));
   expect(screen.getByText(copy.storyActTitle)).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: copy.controlNext })).toBeDisabled();
+  expect(screen.getByRole("button", { name: copy.controlNext })).toHaveAttribute(
+    "aria-disabled",
+    "true",
+  );
 
   await user.click(screen.getByRole("button", { name: copy.controlNext }));
   expect(screen.getByText(copy.storyActTitle)).toBeInTheDocument();

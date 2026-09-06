@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { copy } from "../content/copy";
+import { StageControls } from "./StageControls";
 import { StationPhoto } from "./StationPhoto";
 
 const ACTS = [
@@ -57,24 +58,12 @@ export function ActStage() {
             </p>
           ) : null}
         </div>
-        <div className="torns-stage-controls">
-          <button
-            type="button"
-            className="btn-secondary"
-            disabled={index === 0}
-            onClick={() => setIndex((current) => Math.max(0, current - 1))}
-          >
-            {copy.controlPrev}
-          </button>
-          <button
-            type="button"
-            className="btn-secondary"
-            disabled={index === ACTS.length - 1}
-            onClick={() => setIndex((current) => Math.min(ACTS.length - 1, current + 1))}
-          >
-            {copy.controlNext}
-          </button>
-        </div>
+        <StageControls
+          atStart={index === 0}
+          atEnd={index === ACTS.length - 1}
+          onPrev={() => setIndex((current) => Math.max(0, current - 1))}
+          onNext={() => setIndex((current) => Math.min(ACTS.length - 1, current + 1))}
+        />
       </div>
     </div>
   );

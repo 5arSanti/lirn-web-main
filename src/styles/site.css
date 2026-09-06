@@ -157,7 +157,8 @@ a {
 .hero-torns-photo img,
 .problem-photo img,
 .case-photo img,
-.system-photo img {
+.system-photo img,
+.torns-act-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -490,6 +491,17 @@ a {
 .torns-on-white .interview-list,
 .torns-on-white .interview-list li {
   border-color: color-mix(in srgb, var(--activity-ink) 22%, transparent);
+}
+
+.hero-torns .meta,
+.hero-torns .evidence-label,
+.torns-case .meta,
+.torns-case .evidence-label,
+.torns-validation .meta,
+.torns-validation .evidence-label,
+.torns-discovery .meta,
+.torns-discovery .evidence-label {
+  color: color-mix(in srgb, var(--white) 85%, transparent);
 }
 
 .hero-torns,
@@ -1010,6 +1022,23 @@ a {
   color: color-mix(in srgb, var(--black) 78%, transparent);
 }
 
+.torns-on-air .contrast {
+  background: color-mix(in srgb, var(--activity-ink) 35%, transparent);
+}
+
+.torns-on-air .contrast p {
+  background: var(--white);
+  color: var(--black);
+}
+
+.torns-on-air .contrast-real {
+  color: var(--activity-ink);
+}
+
+.torns-on-air .pipeline li::before {
+  color: var(--activity-ink);
+}
+
 .torns-chapter-rail {
   position: sticky;
   top: 4.5rem;
@@ -1069,6 +1098,11 @@ a {
   margin-top: 1.5rem;
 }
 
+.torns-stage-controls [aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: default;
+}
+
 .torns-chart {
   display: grid;
   gap: 1rem;
@@ -1080,7 +1114,73 @@ a {
 .torns-chart-fill {
   height: 6px;
   background: var(--activity);
-  transition: width 500ms var(--ease);
+  transition: width 500ms var(--ease), height 500ms var(--ease);
+}
+
+.torns-chart-peaks {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(2rem, 8vw, 5rem);
+  height: 12rem;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.torns-chart-peaks li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.6rem;
+  height: 100%;
+}
+
+.torns-chart-column {
+  display: flex;
+  align-items: flex-end;
+  width: clamp(2.5rem, 6vw, 4rem);
+  height: 100%;
+  background: color-mix(in srgb, var(--activity) 18%, transparent);
+}
+
+.torns-chart-peaks .torns-chart-fill {
+  width: 100%;
+  height: 0%;
+}
+
+.torns-chart-peaks .torns-chart-value {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.torns-chart-peaks .torns-chart-label {
+  max-width: 12ch;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.torns-chart-ranking {
+  counter-reset: rank;
+}
+
+.torns-chart-ranking li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem 1rem;
+}
+
+.torns-chart-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  font-weight: 800;
+  color: var(--activity);
+}
+
+.torns-chart-ranking .torns-chart-fill {
+  grid-column: 1 / -1;
 }
 
 .torns-chart-hero-number {
@@ -1137,4 +1237,11 @@ a {
 .page-torns .torns-case {
   display: flex;
   flex-direction: column;
+}
+
+#producto,
+#sistema,
+#caso,
+#cierre {
+  scroll-margin-top: 8rem;
 }

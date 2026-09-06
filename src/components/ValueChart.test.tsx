@@ -19,6 +19,27 @@ const q1 = evidence.questions[0];
 const q5 = evidence.questions[4];
 const q7 = evidence.questions[6];
 
+it("renders peaks as columns and ranking as a numbered list", () => {
+  const q2 = evidence.questions[1];
+  const q8 = evidence.questions[7];
+
+  const peaks = render(<ValueChart form="peaks" bars={q2.bars} reduceMotion />);
+  expect(peaks.container.querySelector(".torns-chart-peaks")).not.toBeNull();
+  expect(peaks.container.querySelectorAll(".torns-chart-column")).toHaveLength(2);
+  expect(peaks.container.querySelector(".torns-chart-fill")?.getAttribute("style")).toMatch(
+    /height/,
+  );
+  peaks.unmount();
+
+  const ranking = render(<ValueChart form="ranking" bars={q8.bars} reduceMotion />);
+  expect(ranking.container.querySelector("ol.torns-chart-ranking")).not.toBeNull();
+  expect(ranking.container.querySelectorAll(".torns-chart-rank")).toHaveLength(3);
+  expect(ranking.container.querySelector(".torns-chart-rank")?.textContent).toBe("1");
+  expect(ranking.container.querySelector(".torns-chart-fill")?.getAttribute("style")).toMatch(
+    /width/,
+  );
+});
+
 it("sets dual-bar data-value to the evidence percentages", () => {
   const { container } = render(
     <ValueChart form="dual" bars={q1.bars} reduceMotion />,

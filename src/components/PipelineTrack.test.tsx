@@ -21,5 +21,8 @@ it("ignites the first step and moves without wrapping", async () => {
     await user.click(screen.getByRole("button", { name: copy.controlNext }));
   }
   expect(screen.getByText(copy.systemStepBodies[5])).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: copy.controlNext })).toBeDisabled();
+  expect(screen.getByRole("button", { name: copy.controlNext })).toHaveAttribute(
+    "aria-disabled",
+    "true",
+  );
 });

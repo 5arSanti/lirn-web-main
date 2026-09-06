@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { copy } from "../content/copy";
 import { evidence } from "../content/evidence";
+import { StageControls } from "./StageControls";
 
 export function QuoteStage() {
   const [index, setIndex] = useState(0);
@@ -11,24 +11,12 @@ export function QuoteStage() {
     <div className="torns-quote-stage">
       <p className="interview-q">{turn.question}</p>
       <p className="interview-a">{turn.answer}</p>
-      <div className="torns-stage-controls">
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === 0}
-          onClick={() => setIndex((current) => Math.max(0, current - 1))}
-        >
-          {copy.controlPrev}
-        </button>
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === last}
-          onClick={() => setIndex((current) => Math.min(last, current + 1))}
-        >
-          {copy.controlNext}
-        </button>
-      </div>
+      <StageControls
+        atStart={index === 0}
+        atEnd={index === last}
+        onPrev={() => setIndex((current) => Math.max(0, current - 1))}
+        onNext={() => setIndex((current) => Math.min(last, current + 1))}
+      />
     </div>
   );
 }

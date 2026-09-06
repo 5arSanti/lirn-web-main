@@ -3,6 +3,7 @@ import { copy } from "../content/copy";
 import { evidence } from "../content/evidence";
 import { SURVEY_ACT_TAGS, chartFormFor } from "../content/surveyActs";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { StageControls } from "./StageControls";
 import { ValueChart } from "./ValueChart";
 
 export function EvidenceStage() {
@@ -27,24 +28,12 @@ export function EvidenceStage() {
         previousBars={previous?.bars}
         reduceMotion={reduceMotion}
       />
-      <div className="torns-stage-controls">
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === 0}
-          onClick={() => setIndex((current) => Math.max(0, current - 1))}
-        >
-          {copy.controlPrev}
-        </button>
-        <button
-          type="button"
-          className="btn-secondary"
-          disabled={index === last}
-          onClick={() => setIndex((current) => Math.min(last, current + 1))}
-        >
-          {copy.controlNext}
-        </button>
-      </div>
+      <StageControls
+        atStart={index === 0}
+        atEnd={index === last}
+        onPrev={() => setIndex((current) => Math.max(0, current - 1))}
+        onNext={() => setIndex((current) => Math.min(last, current + 1))}
+      />
     </div>
   );
 }

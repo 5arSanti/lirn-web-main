@@ -18,5 +18,8 @@ it("shows one controller turn and reaches all eight", async () => {
   }
   expect(screen.getByText(evidence.turns[7].question)).toBeInTheDocument();
   expect(screen.getByText(evidence.turns[7].answer)).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: copy.controlNext })).toBeDisabled();
+  expect(screen.getByRole("button", { name: copy.controlNext })).toHaveAttribute(
+    "aria-disabled",
+    "true",
+  );
 });
