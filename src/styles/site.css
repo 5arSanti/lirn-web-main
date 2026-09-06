@@ -1133,3 +1133,8 @@ a {
     min-width: 10rem;
   }
 }
+
+.page-torns .torns-case {
+  display: flex;
+  flex-direction: column;
+}
