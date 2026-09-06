@@ -7,7 +7,7 @@ import "./styles/site.css";
 
 export function App() {
   return (
-    <BrowserRouter basename="/lirn-web-main">
+    <BrowserRouter basename="/lirn-web-main/">
       <SiteNav />
       <Routes>
         <Route path="/" element={<HomePage />} />
