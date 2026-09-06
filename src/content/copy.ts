@@ -87,6 +87,7 @@ export const copy = {
   cap4: "Recomendación de despacho",
   discoveryTitle: "Descubrimiento",
   validationTitle: "Validación",
+  validationLead: "Encuesta · n=20",
   close: "Cualquier sistema masivo con estaciones.",
   chapterProduct: "Producto",
   chapterSystem: "Sistema",

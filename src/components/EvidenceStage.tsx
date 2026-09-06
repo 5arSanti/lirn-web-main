@@ -21,24 +21,22 @@ export function EvidenceStage() {
         <p className="meta">{progress}</p>
         <p className="torns-act-tag">{SURVEY_ACT_TAGS[question.id]}</p>
       </div>
-      <StageSlide
-        id={question.id}
-        direction={stage.direction}
-        className="torns-evidence-panel"
-      >
-        <div className="torns-evidence-copy">
-          <h3>{question.title}</h3>
-          <p className="meta">{question.context}</p>
-          <p className="prose">{question.analysis}</p>
-          <p className="evidence-label">n={evidence.n}</p>
-        </div>
-        <div className="torns-evidence-chart">
-          <ValueChart
-            form={chartFormFor(question.id)}
-            bars={question.bars}
-            previousBars={previous?.bars}
-            reduceMotion={reduceMotion}
-          />
+      <StageSlide id={question.id} direction={stage.direction}>
+        <div className="torns-evidence-panel">
+          <div className="torns-evidence-copy">
+            <h3>{question.title}</h3>
+            <p className="meta">{question.context}</p>
+            <p className="prose">{question.analysis}</p>
+            <p className="evidence-label">n={evidence.n}</p>
+          </div>
+          <div className="torns-evidence-chart">
+            <ValueChart
+              form={chartFormFor(question.id)}
+              bars={question.bars}
+              previousBars={previous?.bars}
+              reduceMotion={reduceMotion}
+            />
+          </div>
         </div>
       </StageSlide>
       <StageControls

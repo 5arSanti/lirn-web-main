@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BrandMark } from "../components/BrandMark";
 import { ByLirn } from "../components/ByLirn";
+import { Reveal } from "../components/Reveal";
 import { StationPhoto } from "../components/StationPhoto";
 import { copy } from "../content/copy";
 
@@ -33,79 +34,89 @@ export function HomePage() {
         </div>
       </section>
 
-      <section id="empresa" className="split band-white">
-        <div className="split-copy">
-          <h2 className="display">{copy.companyTitle}</h2>
-          <p className="lede">{copy.companyBody}</p>
-        </div>
-        <StationPhoto file="image-1.jfif" className="split-photo" />
-      </section>
+      <Reveal>
+        <section id="empresa" className="split band-white">
+          <div className="split-copy">
+            <h2 className="display">{copy.companyTitle}</h2>
+            <p className="lede">{copy.companyBody}</p>
+          </div>
+          <StationPhoto file="image-1.jfif" className="split-photo" />
+        </section>
+      </Reveal>
 
-      <section className="purpose-lirn" aria-labelledby="purpose-title">
-        <h2 id="purpose-title" className="display">
-          {copy.purposeTitle}
-        </h2>
-        <div className="purpose-pair">
-          <article className="purpose-card purpose-mission">
-            <h3>{copy.missionLabel}</h3>
-            <p>{copy.mission}</p>
-          </article>
-          <article className="purpose-card purpose-vision">
-            <h3>{copy.visionLabel}</h3>
-            <p>{copy.vision}</p>
-          </article>
-        </div>
-      </section>
+      <Reveal delay={0.04}>
+        <section className="purpose-lirn" aria-labelledby="purpose-title">
+          <h2 id="purpose-title" className="display">
+            {copy.purposeTitle}
+          </h2>
+          <div className="purpose-pair">
+            <article className="purpose-card purpose-mission">
+              <h3>{copy.missionLabel}</h3>
+              <p>{copy.mission}</p>
+            </article>
+            <article className="purpose-card purpose-vision">
+              <h3>{copy.visionLabel}</h3>
+              <p>{copy.vision}</p>
+            </article>
+          </div>
+        </section>
+      </Reveal>
 
-      <section className="cap-lirn band-white" aria-labelledby="cap-title">
-        <h2 id="cap-title" className="display">
-          {copy.capabilityTitle}
-        </h2>
-        <ol className="cap-list">
-          <li>
-            <StationPhoto file="image-5.jfif" className="cap-photo" />
-            <strong>{copy.capMeasure}</strong>
-            <p>{copy.capMeasureBody}</p>
-          </li>
-          <li>
-            <StationPhoto file="image-6.jfif" className="cap-photo" />
-            <strong>{copy.capSee}</strong>
-            <p>{copy.capSeeBody}</p>
-          </li>
-          <li>
-            <StationPhoto file="image-7.jfif" className="cap-photo" />
-            <strong>{copy.capRecommend}</strong>
-            <p>{copy.capRecommendBody}</p>
-          </li>
-        </ol>
-      </section>
+      <Reveal delay={0.06}>
+        <section className="cap-lirn band-white" aria-labelledby="cap-title">
+          <h2 id="cap-title" className="display">
+            {copy.capabilityTitle}
+          </h2>
+          <ol className="cap-list">
+            <li>
+              <StationPhoto file="image-5.jfif" className="cap-photo" />
+              <strong>{copy.capMeasure}</strong>
+              <p>{copy.capMeasureBody}</p>
+            </li>
+            <li>
+              <StationPhoto file="image-6.jfif" className="cap-photo" />
+              <strong>{copy.capSee}</strong>
+              <p>{copy.capSeeBody}</p>
+            </li>
+            <li>
+              <StationPhoto file="image-7.jfif" className="cap-photo" />
+              <strong>{copy.capRecommend}</strong>
+              <p>{copy.capRecommendBody}</p>
+            </li>
+          </ol>
+        </section>
+      </Reveal>
 
-      <section className="teaser-lirn">
-        <div className="teaser-copy">
-          <p className="endorsement">
-            <BrandMark variant="icon" on="dark" className="mark-teaser" />
-            <span className="hero-brand">
-              {copy.teaserTitle}
-              <ByLirn />
-            </span>
-          </p>
-          <p className="lede">{copy.teaserLead}</p>
-          <p className="prose">{copy.teaserBody}</p>
-          <Link className="btn-primary" to="/torns">
-            {copy.verTorns}
-          </Link>
-        </div>
-        <StationPhoto file="image-3.jfif" className="teaser-photo" />
-      </section>
+      <Reveal delay={0.08}>
+        <section className="teaser-lirn">
+          <div className="teaser-copy">
+            <p className="endorsement">
+              <BrandMark variant="icon" on="dark" className="mark-teaser" />
+              <span className="hero-brand">
+                {copy.teaserTitle}
+                <ByLirn />
+              </span>
+            </p>
+            <p className="lede">{copy.teaserLead}</p>
+            <p className="prose">{copy.teaserBody}</p>
+            <Link className="btn-primary" to="/torns">
+              {copy.verTorns}
+            </Link>
+          </div>
+          <StationPhoto file="image-3.jfif" className="teaser-photo" />
+        </section>
+      </Reveal>
 
-      <section id="contacto" className="band-white contact-lirn">
-        <h2 className="display">{copy.contactTitle}</h2>
-        <p className="prose">{copy.contactBody}</p>
-        <p className="contact-note">{copy.contactNote}</p>
-        <span className="contact-pending" aria-disabled="true">
-          {copy.ctaTalk}
-        </span>
-      </section>
+      <Reveal delay={0.1}>
+        <section id="contacto" className="band-white contact-lirn">
+          <h2 className="display">{copy.contactTitle}</h2>
+          <p className="prose">{copy.contactBody}</p>
+          <p className="contact-note">{copy.contactNote}</p>
+          <span className="contact-pending" aria-disabled="true">
+            {copy.ctaTalk}
+          </span>
+        </section>
+      </Reveal>
     </main>
   );
 }

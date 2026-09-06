@@ -6,6 +6,7 @@ import { ByLirn } from "../components/ByLirn";
 import { ChapterRail } from "../components/ChapterRail";
 import { InterviewBlock } from "../components/InterviewBlock";
 import { PipelineTrack } from "../components/PipelineTrack";
+import { Reveal } from "../components/Reveal";
 import { StationPhoto } from "../components/StationPhoto";
 import { SurveyBlock } from "../components/SurveyBlock";
 import { copy } from "../content/copy";
@@ -71,75 +72,87 @@ export function TornsPage() {
         </div>
       </section>
 
-      <section
-        id="sistema"
-        className="torns-system torns-on-white"
-        aria-labelledby="story-title"
-      >
-        <h2 id="story-title" className="display">
-          {copy.storyTitle}
-        </h2>
-        <ActStage />
-        <h2 className="display">{copy.systemTitle}</h2>
-        <PipelineTrack />
-        <div className="system-grid">
-          <div>
-            <h3>{copy.capabilitiesTitle}</h3>
-            <ul className="proto-list">
-              {CAPABILITIES.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <StationPhoto file="image-3.jfif" className="system-photo" />
-        </div>
-        <div className="torns-bridge contrast">
-          <p>{copy.problemExpected}</p>
-          <p className="contrast-real">{copy.problemReal}</p>
-        </div>
-      </section>
-
-      <section
-        id="problema"
-        className="torns-problem torns-on-white"
-        aria-labelledby="problem-title"
-      >
-        <StationPhoto file="image-4.jfif" className="problem-photo" />
-        <div className="problem-copy">
-          <h2 id="problem-title" className="display">
-            {copy.problemTitle}
+      <Reveal>
+        <section
+          id="sistema"
+          className="torns-system torns-on-white"
+          aria-labelledby="story-title"
+        >
+          <h2 id="story-title" className="display">
+            {copy.storyTitle}
           </h2>
-          <p className="prose">{copy.problemBody}</p>
-          <div className="contrast">
+          <ActStage />
+          <h2 className="display">{copy.systemTitle}</h2>
+          <PipelineTrack />
+          <div className="system-grid">
+            <div>
+              <h3>{copy.capabilitiesTitle}</h3>
+              <ul className="proto-list">
+                {CAPABILITIES.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <StationPhoto file="image-3.jfif" className="system-photo" />
+          </div>
+          <div className="torns-bridge contrast">
             <p>{copy.problemExpected}</p>
             <p className="contrast-real">{copy.problemReal}</p>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
-      <section id="caso" className="torns-case torns-band-blue" aria-labelledby="case-title">
-        <div className="torns-case-story">
-          <div className="case-copy">
-            <h2 id="case-title" className="display">
-              {copy.caseFrame}
+      <Reveal delay={0.04}>
+        <section
+          id="problema"
+          className="torns-problem torns-on-white"
+          aria-labelledby="problem-title"
+        >
+          <StationPhoto file="image-4.jfif" className="problem-photo" />
+          <div className="problem-copy">
+            <h2 id="problem-title" className="display">
+              {copy.problemTitle}
             </h2>
-            <p className="lede">{copy.caseNotPilot}</p>
-            <p className="prose">{copy.caseScope}</p>
+            <p className="prose">{copy.problemBody}</p>
+            <div className="contrast">
+              <p>{copy.problemExpected}</p>
+              <p className="contrast-real">{copy.problemReal}</p>
+            </div>
           </div>
-          <StationPhoto file="image-1.jfif" className="case-photo" />
-        </div>
-      </section>
+        </section>
+      </Reveal>
+
+      <Reveal delay={0.06}>
+        <section
+          id="caso"
+          className="torns-case torns-band-blue"
+          aria-labelledby="case-title"
+        >
+          <div className="torns-case-story">
+            <div className="case-copy">
+              <h2 id="case-title" className="display">
+                {copy.caseFrame}
+              </h2>
+              <p className="lede">{copy.caseNotPilot}</p>
+              <p className="prose">{copy.caseScope}</p>
+            </div>
+            <StationPhoto file="image-1.jfif" className="case-photo" />
+          </div>
+        </section>
+      </Reveal>
 
       <InterviewBlock />
       <SurveyBlock />
 
-      <section id="cierre" className="torns-close torns-on-white">
-        <BrandMark variant="wordmark" on="light" className="mark-close" />
-        <h2 className="display">{copy.close}</h2>
-        <Link className="btn-primary" to="/">
-          {copy.navLirn}
-        </Link>
-      </section>
+      <Reveal delay={0.08}>
+        <section id="cierre" className="torns-close torns-on-white">
+          <BrandMark variant="wordmark" on="light" className="mark-close" />
+          <h2 className="display">{copy.close}</h2>
+          <Link className="btn-primary" to="/">
+            {copy.navLirn}
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }
