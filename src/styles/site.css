@@ -15,3 +15,143 @@
 .by-lirn {
   font-size: 0.4em;
 }
+
+.page-lirn {
+  --pliego: min(8vw, 8rem);
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.page-lirn :is(h1, h2, p) {
+  margin: 0;
+}
+
+.page-lirn section,
+.block-firma,
+.block-close {
+  padding-inline: var(--pliego);
+}
+
+.block-firma {
+  display: grid;
+  gap: 1.5rem;
+  min-height: 43vh;
+  align-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark-img,
+.wordmark-text {
+  display: block;
+  width: auto;
+  height: 2.75rem;
+}
+
+.wordmark-text {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.block-firma p {
+  max-width: 40rem;
+  color: var(--graphite);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.1;
+}
+
+.block-mv,
+.block-why {
+  display: grid;
+  gap: 1.25rem;
+  padding-block: clamp(4rem, 10vw, 9rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.block-mv h1,
+.block-mv h2,
+.block-why h2 {
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.block-mv h2 {
+  margin-top: clamp(2.5rem, 6vw, 6rem);
+}
+
+.block-mv p,
+.block-why p {
+  max-width: 72ch;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 1.35;
+}
+
+.block-product {
+  display: grid;
+  gap: 2rem;
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+  background: var(--civic);
+  color: var(--paper);
+}
+
+.product-name {
+  display: flex;
+  align-items: end;
+  gap: 0.75rem;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+}
+
+.product-name .wordmark-img {
+  height: clamp(2.5rem, 7vw, 6rem);
+}
+
+.product-name .by-lirn {
+  padding-bottom: 0.15em;
+  white-space: nowrap;
+}
+
+.block-product p {
+  max-width: 48rem;
+  font-size: clamp(1.35rem, 3vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.block-product a {
+  width: fit-content;
+  color: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-underline-offset: 0.3em;
+}
+
+.block-why .foot {
+  color: var(--graphite);
+  font-size: 0.95rem;
+}
+
+.block-close {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 36rem) {
+  .page-lirn {
+    --pliego: 1.5rem;
+  }
+
+  .block-firma {
+    min-height: 32vh;
+  }
+
+  .product-name {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
