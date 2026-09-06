@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import type { ChartForm } from "../content/surveyActs";
 
 export type ChartBar = { label: string; value: number };
@@ -14,21 +15,24 @@ export function ValueChart({
   previousBars?: readonly ChartBar[];
   reduceMotion?: boolean;
 }) {
-  const initial = reduceMotion
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const shouldReduceMotion = reduceMotion ? true : prefersReducedMotion;
+  const initial = shouldReduceMotion
     ? bars.map((bar) => bar.value)
     : (previousBars?.map((bar) => bar.value) ?? bars.map(() => 0));
   const [shown, setShown] = useState<number[]>(initial);
 
   useEffect(() => {
-    if (reduceMotion) {
+    if (shouldReduceMotion) {
       setShown(bars.map((bar) => bar.value));
       return;
     }
+    setShown(previousBars?.map((bar) => bar.value) ?? bars.map(() => 0));
     const frame = window.requestAnimationFrame(() => {
       setShown(bars.map((bar) => bar.value));
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [bars, reduceMotion]);
+  }, [bars, previousBars, shouldReduceMotion]);
 
   if (form === "hero") {
     const bar = bars[0];

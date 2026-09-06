@@ -1,7 +1,19 @@
-import { render, screen } from "@testing-library/react";
-import { expect, it } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, expect, it, vi } from "vitest";
 import { evidence } from "../content/evidence";
 import { ValueChart } from "./ValueChart";
+
+beforeEach(() => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  });
+});
 
 const q1 = evidence.questions[0];
 const q5 = evidence.questions[4];
@@ -51,4 +63,40 @@ it("uses previousBars only as the start, then lands on the new value", () => {
   expect(container.querySelector(".torns-chart-fill")?.getAttribute("data-value")).toBe(
     "80",
   );
+});
+
+it("lands on new bars when reduceMotion rerenders with updated bars", () => {
+  const { container, rerender } = render(
+    <ValueChart form="dual" bars={[{ label: "A", value: 20 }]} reduceMotion />,
+  );
+  rerender(
+    <ValueChart form="dual" bars={[{ label: "A", value: 80 }]} reduceMotion />,
+  );
+  expect(container.querySelector(".torns-chart-fill")?.getAttribute("data-value")).toBe(
+    "80",
+  );
+});
+
+it("lands on new bars after rerender when motion is enabled", async () => {
+  const { container, rerender } = render(
+    <ValueChart
+      form="dual"
+      bars={[{ label: "A", value: 20 }]}
+      previousBars={[{ label: "A", value: 10 }]}
+      reduceMotion={false}
+    />,
+  );
+  rerender(
+    <ValueChart
+      form="dual"
+      bars={[{ label: "A", value: 80 }]}
+      previousBars={[{ label: "A", value: 20 }]}
+      reduceMotion={false}
+    />,
+  );
+  await waitFor(() => {
+    expect(container.querySelector(".torns-chart-fill")?.getAttribute("data-value")).toBe(
+      "80",
+    );
+  });
 });
