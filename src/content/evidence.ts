@@ -177,5 +177,5 @@ export const evidence = {
     },
   ] satisfies SurveyQuestion[],
   conclusions:
-    "Los resultados validan el problema en existencia (80% el último mes), recurrencia (65% varias veces por semana) y costo (más de 3 horas y sobrecostos de $50.000 o más para la mayoría). Investigación del equipo. n=20.",
+    "Los resultados obtenidos validan contundentemente el problema bajo las tres dimensiones fundamentales de análisis: existencia, ya que el 80% de los encuestados lo experimentó durante el último mes; recurrencia, evidenciada en un 65% de usuarios que se enfrentan a esta situación varias veces por semana; y costo de impacto, generando una pérdida cuantificable de más de 3 horas y sobrecostos superiores a los $50.000 mensuales para la mayoría de los afectados. Investigación del equipo. n=20.",
 } as const;
