@@ -3,8 +3,7 @@ import { evidence } from "../content/evidence";
 
 export function SurveyBlock() {
   return (
-    <section className="band band-black" aria-labelledby="validation-title">
-      <p className="meta">06</p>
+    <section className="band torns-validation" aria-labelledby="validation-title">
       <h2 id="validation-title" className="display">
         {copy.validationTitle}
       </h2>
