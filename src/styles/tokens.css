@@ -4,9 +4,10 @@
   --graphite: #6b7280;
   --activity: #00a8ff;
   --activity-ink: #006da8;
-  --torns-deep: #031422;
-  --torns-mid: #06263d;
-  --torns-panel: #0a3350;
+  --torns-deep: #0a3a5c;
+  --torns-mid: #135a84;
+  --torns-panel: #1c7aad;
+  --torns-air: #e8f4fb;
   --font: "Manrope", sans-serif;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --cut: 12%;
