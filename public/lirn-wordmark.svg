@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" role="img" aria-label="LIRN">
+  <title>LIRN</title>
+  <g fill="#FFFFFF">
+    <!-- L: sharp foot terminal -->
+    <path d="M14 10v48h34v12H14V10z"/>
+    <!-- I: rail + station node (punto on a line) -->
+    <path d="M62 36h36v8H62z"/>
+    <path d="M78 22h4v36h-4z"/>
+    <!-- R: bowl + leg meeting N -->
+    <path d="M108 10v60h12V44h18l16 26h14L150 42c8-3 14-11 14-21 0-14-10-22-26-22h-30zm12 12h16c7 0 11 4 11 10s-4 10-11 10h-16V22z"/>
+    <!-- N: shared transit stroke from R leg -->
+    <path d="M176 70V10h12v38l34-38h12v60h-12V32L188 70h-12z"/>
+  </g>
+</svg>
