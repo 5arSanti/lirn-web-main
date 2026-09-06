@@ -1,0 +1,17 @@
+.site-nav {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav a {
+  color: var(--ink);
+  border-radius: 0;
+}
+
+.site-nav a.active {
+  color: var(--civic);
+}
+
+.by-lirn {
+  font-size: 0.4em;
+}
