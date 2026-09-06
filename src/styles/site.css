@@ -1187,3 +1187,236 @@
     min-height: 40rem;
   }
 }
+
+/* TORNS product microsite */
+.torns-page {
+  overflow: hidden;
+  background: var(--surface-dark);
+  color: var(--paper);
+}
+
+.torns-page .torns-hero {
+  min-height: min(46rem, calc(100dvh - var(--rail)));
+  align-content: center;
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: var(--civic);
+}
+
+.torns-page .hero-media::after {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--surface-dark) 94%, transparent) 0%,
+      color-mix(in srgb, var(--civic) 82%, transparent) 58%,
+      color-mix(in srgb, var(--civic) 56%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-dark) 12%, transparent),
+      color-mix(in srgb, var(--surface-dark) 66%, transparent)
+    );
+}
+
+.torns-page .hero-media img {
+  filter: saturate(0.55) contrast(1.1);
+}
+
+.torns-page .hero-copy {
+  max-width: 68rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.torns-page .hero-brand {
+  display: flex;
+  align-items: baseline;
+  color: var(--paper);
+  font-family: var(--font);
+  font-size: clamp(3.5rem, 11vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.torns-page .hero-brand .by-lirn {
+  color: color-mix(in srgb, var(--paper) 70%, var(--civic));
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.06em;
+}
+
+.torns-page .hero-headline {
+  max-width: 16ch;
+  font-family: var(--font);
+  font-size: clamp(2.35rem, 6vw, 5.25rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.torns-page .hero-support {
+  max-width: 48ch;
+  color: color-mix(in srgb, var(--paper) 82%, var(--civic));
+  font-weight: 600;
+}
+
+.torns-page .btn-primary {
+  background: var(--paper);
+  color: var(--civic);
+}
+
+.torns-page .btn-primary:hover {
+  background: var(--civic-strong);
+  color: var(--surface-dark);
+}
+
+.torns-page .section {
+  padding: clamp(3.25rem, 7vw, 5.5rem) var(--gutter);
+}
+
+.torns-page .section-grid {
+  grid-template-columns: minmax(16rem, 0.85fr) minmax(20rem, 1.15fr);
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.torns-page .display {
+  font-family: var(--font);
+  font-size: clamp(2.25rem, 5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.torns-page .lede,
+.torns-page .prose {
+  max-width: 65ch;
+  margin-top: 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.torns-problem {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.torns-problem .context-note {
+  color: var(--mute);
+}
+
+.torns-page .product-story {
+  max-width: 88rem;
+  margin: 0 auto;
+  padding-block: clamp(3.25rem, 7vw, 5.5rem);
+  background: var(--surface-dark);
+}
+
+.torns-page .product-story-panel {
+  min-height: 24rem;
+}
+
+.torns-capabilities {
+  background: var(--civic);
+}
+
+.torns-capabilities .section-grid {
+  align-items: stretch;
+}
+
+.torns-capabilities .prose {
+  margin-top: 1.25rem;
+  color: color-mix(in srgb, var(--paper) 80%, var(--civic));
+}
+
+.torns-capability-list {
+  display: grid;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 30%, transparent);
+  list-style: none;
+}
+
+.torns-capability-list li {
+  position: relative;
+  padding: 1.1rem 2rem 1.1rem 0;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--paper) 30%, transparent);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 700;
+}
+
+.torns-capability-list li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.25rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--civic-strong);
+  transform: translateY(-50%);
+}
+
+.torns-limit {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  background: var(--civic-strong);
+  color: var(--surface-dark);
+  text-align: center;
+}
+
+.torns-limit p {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.torns-close {
+  background: var(--surface-dark);
+}
+
+.torns-close .section-grid {
+  grid-template-columns: minmax(20rem, 1fr) auto;
+  align-items: end;
+}
+
+.torns-close .lede {
+  margin-top: 1.25rem;
+  color: color-mix(in srgb, var(--paper) 68%, var(--surface-dark));
+}
+
+.torns-page .infographic {
+  margin: 0;
+  padding: clamp(2rem, 5vw, 4rem) var(--gutter);
+  background: var(--paper);
+}
+
+.torns-page .infographic img {
+  width: min(100%, 76rem);
+  margin: 0 auto;
+}
+
+@media (max-width: 52rem) {
+  .torns-page .section-grid,
+  .torns-close .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .torns-page .product-story {
+    margin-inline: var(--gutter);
+  }
+
+  .torns-close .btn-primary {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 36rem) {
+  .torns-page .torns-hero {
+    min-height: 40rem;
+  }
+
+  .torns-page .product-story {
+    margin-inline: 0;
+  }
+}

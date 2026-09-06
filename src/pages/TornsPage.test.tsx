@@ -17,6 +17,11 @@ it("speaks as TORNS by LIRN with the approved problem and limit", () => {
   expect(screen.getByText(copy.solutionTitle)).toBeInTheDocument();
   expect(screen.getByText(copy.factOccupation)).toBeInTheDocument();
   expect(screen.getByText(copy.limit)).toBeInTheDocument();
+  expect(screen.getByText(copy.storyTitle)).toBeInTheDocument();
+  expect(screen.getByText(copy.syntheticNote)).toBeInTheDocument();
+  expect(
+    screen.getByRole("tab", { name: /01|ocupación/i }),
+  ).toBeInTheDocument();
   expect(screen.queryByText(copy.mission)).not.toBeInTheDocument();
   expect(screen.queryByAltText(copy.qrLegend)).not.toBeInTheDocument();
 });

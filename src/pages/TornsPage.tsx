@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { ByLirn } from "../components/ByLirn";
 import { InfographicSlot } from "../components/InfographicSlot";
+import { ProductStory } from "../components/ProductStory";
 import { copy } from "../content/copy";
+
+const CAPABILITIES = [copy.cap1, copy.cap2, copy.cap3, copy.cap4];
 
 export function TornsPage() {
   return (
-    <main className="page">
-      <section className="hero" aria-label="TORNS">
+    <main className="page torns-page" data-theme="torns">
+      <section className="hero torns-hero" aria-labelledby="torns-title">
         <div className="hero-media" aria-hidden="true">
           <img
             src={`${import.meta.env.BASE_URL}images/torns-hero.jpg`}
@@ -20,8 +23,10 @@ export function TornsPage() {
             {copy.tornsName}
             <ByLirn />
           </p>
-          <h1 className="hero-headline">{copy.tornsOficio}</h1>
-          <p className="hero-support">{copy.solutionBody}</p>
+          <h1 id="torns-title" className="hero-headline">
+            {copy.tornsOficio}
+          </h1>
+          <p className="hero-support">{copy.solutionTitle}</p>
           <div className="hero-actions">
             <Link
               className="btn-primary"
@@ -33,66 +38,52 @@ export function TornsPage() {
         </div>
       </section>
 
-      <section className="section section-paper">
+      <section className="section torns-problem">
         <div className="section-grid">
-          <p className="section-label">{copy.problemLabel}</p>
-          <div>
-            <h2 className="display">{copy.whyTitle}</h2>
+          <h2 className="display">{copy.whyTitle}</h2>
+          <div className="torns-problem-copy">
             <p className="prose">{copy.whyBody}</p>
-            <p className="prose">{copy.whyFoot}</p>
+            <p className="context-note">{copy.whyFoot}</p>
           </div>
         </div>
       </section>
 
-      <section className="section section-dark">
+      <ProductStory />
+
+      <section className="section torns-capabilities">
         <div className="section-grid">
-          <p className="section-label">{copy.solutionLabel}</p>
           <div>
-            <h2 className="display">{copy.solutionTitle}</h2>
+            <h2 className="display">{copy.capabilitiesTitle}</h2>
             <p className="prose">{copy.solutionBody}</p>
-            <div className="instrument-row" aria-label="Prueba del producto">
-              <div className="instrument">
-                <strong>01</strong>
-                <p>{copy.factOccupation}</p>
-              </div>
-              <div className="instrument">
-                <strong>02</strong>
-                <p>{copy.factCamera}</p>
-              </div>
-              <div className="instrument">
-                <strong>03</strong>
-                <p>{copy.factRecommend}</p>
-              </div>
-            </div>
-            <p className="limit">{copy.limit}</p>
           </div>
+          <ul className="torns-capability-list">
+            {CAPABILITIES.map((capability) => (
+              <li key={capability}>{capability}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section torns-limit" aria-label="Estado del producto">
+        <p>{copy.limit}</p>
+      </section>
+
+      <section className="section torns-close">
+        <div className="section-grid">
+          <div>
+            <h2 className="display">{copy.close}</h2>
+            <p className="lede">{copy.productWhat}</p>
+          </div>
+          <Link
+            className="btn-primary"
+            to={{ pathname: "/", hash: "contacto" }}
+          >
+            {copy.ctaTalk}
+          </Link>
         </div>
       </section>
 
       <InfographicSlot />
-
-      <section className="section section-paper">
-        <div className="section-grid">
-          <p className="section-label">Cierre</p>
-          <div>
-            <h2 className="display">{copy.close}</h2>
-            <p className="lede">{copy.productWhat}</p>
-            <div className="hero-actions" style={{ marginTop: "1.5rem" }}>
-              <Link
-                className="btn-primary"
-                to={{ pathname: "/", hash: "contacto" }}
-              >
-                {copy.ctaTalk}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <strong>{copy.tornsByLirn}</strong>
-        <p>{copy.footerBlurb}</p>
-      </footer>
     </main>
   );
 }
