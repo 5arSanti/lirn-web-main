@@ -77,6 +77,29 @@ it("lands on new bars when reduceMotion rerenders with updated bars", () => {
   );
 });
 
+it("lands on final bars on first paint when OS prefers reduced motion", () => {
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches: true,
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  });
+
+  const { container } = render(
+    <ValueChart
+      form="dual"
+      bars={[{ label: "A", value: 80 }]}
+      previousBars={[{ label: "A", value: 20 }]}
+    />,
+  );
+  expect(container.querySelector(".torns-chart-fill")?.getAttribute("data-value")).toBe(
+    "80",
+  );
+});
+
 it("lands on new bars after rerender when motion is enabled", async () => {
   const { container, rerender } = render(
     <ValueChart
