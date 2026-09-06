@@ -3,13 +3,15 @@ import { copy } from "../content/copy";
 
 export function NotFoundPage() {
   return (
-    <main className="page page-lirn">
-      <h1>{copy.notFound}</h1>
-      <p>
-        <Link to="/">{copy.navLirn}</Link>
-        {" · "}
-        <Link to="/torns">{copy.navTorns}</Link>
-      </p>
+    <main className="stage stage-lirn stage-404">
+      <header className="stage-hero">
+        <h1>{copy.notFound}</h1>
+        <p className="stage-oficio">
+          <Link to="/">{copy.navLirn}</Link>
+          <span aria-hidden="true"> · </span>
+          <Link to="/torns">{copy.navTorns}</Link>
+        </p>
+      </header>
     </main>
   );
 }
