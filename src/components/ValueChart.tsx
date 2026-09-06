@@ -23,15 +23,21 @@ export function ValueChart({
   const [shown, setShown] = useState<number[]>(initial);
 
   useEffect(() => {
+    let cancelled = false;
     if (shouldReduceMotion) {
       setShown(bars.map((bar) => bar.value));
       return;
     }
     setShown(previousBars?.map((bar) => bar.value) ?? bars.map(() => 0));
     const frame = window.requestAnimationFrame(() => {
-      setShown(bars.map((bar) => bar.value));
+      if (!cancelled) {
+        setShown(bars.map((bar) => bar.value));
+      }
     });
-    return () => window.cancelAnimationFrame(frame);
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frame);
+    };
   }, [bars, previousBars, shouldReduceMotion]);
 
   if (form === "hero") {
