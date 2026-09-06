@@ -1,8 +1,61 @@
-import { useEffect, useState } from "react";
+import { animate, motion, useMotionValue, useTransform } from "motion/react";
+import { useEffect } from "react";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import type { ChartForm } from "../content/surveyActs";
 
 export type ChartBar = { label: string; value: number };
+
+function AnimatedPercent({
+  value,
+  reduceMotion,
+}: {
+  value: number;
+  reduceMotion: boolean;
+}) {
+  const motionValue = useMotionValue(reduceMotion ? value : 0);
+  const rounded = useTransform(motionValue, (latest) => `${Math.round(latest)}%`);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      motionValue.set(value);
+      return;
+    }
+    const controls = animate(motionValue, value, {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    });
+    return () => controls.stop();
+  }, [motionValue, reduceMotion, value]);
+
+  return (
+    <motion.span className="torns-chart-hero-number" data-hero={value}>
+      {rounded}
+    </motion.span>
+  );
+}
+
+function BarFill({
+  value,
+  previous,
+  reduceMotion,
+  axis,
+}: {
+  value: number;
+  previous?: number;
+  reduceMotion: boolean;
+  axis: "width" | "height";
+}) {
+  const from = reduceMotion ? value : (previous ?? 0);
+  return (
+    <motion.div
+      className="torns-chart-fill"
+      data-value={value}
+      initial={reduceMotion ? false : { [axis]: `${from}%` }}
+      animate={{ [axis]: `${value}%` }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+    />
+  );
+}
 
 export function ValueChart({
   form,
@@ -17,39 +70,6 @@ export function ValueChart({
 }) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const shouldReduceMotion = reduceMotion ? true : prefersReducedMotion;
-  const initial = shouldReduceMotion
-    ? bars.map((bar) => bar.value)
-    : (previousBars?.map((bar) => bar.value) ?? bars.map(() => 0));
-  const [shown, setShown] = useState<number[]>(initial);
-
-  useEffect(() => {
-    let cancelled = false;
-    let frame = 0;
-    if (shouldReduceMotion) {
-      setShown(bars.map((bar) => bar.value));
-      return;
-    }
-    setShown(previousBars?.map((bar) => bar.value) ?? bars.map(() => 0));
-    if (typeof window === "undefined" || typeof window.requestAnimationFrame !== "function") {
-      setShown(bars.map((bar) => bar.value));
-      return;
-    }
-    frame = window.requestAnimationFrame(() => {
-      if (!cancelled) {
-        setShown(bars.map((bar) => bar.value));
-      }
-    });
-    return () => {
-      cancelled = true;
-      try {
-        if (typeof window !== "undefined") {
-          window.cancelAnimationFrame(frame);
-        }
-      } catch {
-        // jsdom may already be gone when the suite tears down
-      }
-    };
-  }, [bars, previousBars, shouldReduceMotion]);
 
   if (form === "hero") {
     const bar = bars[0];
@@ -58,14 +78,13 @@ export function ValueChart({
     }
     return (
       <div className="torns-chart torns-chart-hero">
-        <p className="torns-chart-hero-number" data-hero={bar.value}>
-          {bar.value}%
-        </p>
+        <AnimatedPercent value={bar.value} reduceMotion={shouldReduceMotion} />
         <p>{bar.label}</p>
-        <div
-          className="torns-chart-fill"
-          data-value={bar.value}
-          style={{ width: `${shown[0] ?? bar.value}%` }}
+        <BarFill
+          value={bar.value}
+          previous={previousBars?.[0]?.value}
+          reduceMotion={shouldReduceMotion}
+          axis="width"
         />
       </div>
     );
@@ -78,10 +97,11 @@ export function ValueChart({
           <li key={bar.label}>
             <span className="torns-chart-value">{bar.value}%</span>
             <div className="torns-chart-column">
-              <div
-                className="torns-chart-fill"
-                data-value={bar.value}
-                style={{ height: `${shown[index] ?? bar.value}%` }}
+              <BarFill
+                value={bar.value}
+                previous={previousBars?.[index]?.value}
+                reduceMotion={shouldReduceMotion}
+                axis="height"
               />
             </div>
             <span className="torns-chart-label">{bar.label}</span>
@@ -101,10 +121,11 @@ export function ValueChart({
             </span>
             <span>{bar.label}</span>
             <span>{bar.value}%</span>
-            <div
-              className="torns-chart-fill"
-              data-value={bar.value}
-              style={{ width: `${shown[index] ?? bar.value}%` }}
+            <BarFill
+              value={bar.value}
+              previous={previousBars?.[index]?.value}
+              reduceMotion={shouldReduceMotion}
+              axis="width"
             />
           </li>
         ))}
@@ -118,10 +139,11 @@ export function ValueChart({
         <li key={bar.label}>
           <span>{bar.label}</span>
           <span>{bar.value}%</span>
-          <div
-            className="torns-chart-fill"
-            data-value={bar.value}
-            style={{ width: `${shown[index] ?? bar.value}%` }}
+          <BarFill
+            value={bar.value}
+            previous={previousBars?.[index]?.value}
+            reduceMotion={shouldReduceMotion}
+            axis="width"
           />
         </li>
       ))}

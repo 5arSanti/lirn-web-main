@@ -3,6 +3,7 @@ import { copy } from "../content/copy";
 const CHAPTERS = [
   { id: "producto", label: copy.chapterProduct },
   { id: "sistema", label: copy.chapterSystem },
+  { id: "problema", label: copy.problemTitle },
   { id: "caso", label: copy.chapterCase },
   { id: "cierre", label: copy.chapterClose },
 ] as const;

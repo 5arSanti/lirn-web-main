@@ -1,6 +1,7 @@
-import { useState } from "react";
 import { copy } from "../content/copy";
+import { useStageIndex } from "../hooks/useStageIndex";
 import { StageControls } from "./StageControls";
+import { StageSlide } from "./StageSlide";
 import { StationPhoto } from "./StationPhoto";
 
 const ACTS = [
@@ -31,38 +32,44 @@ const ACTS = [
 ] as const;
 
 export function ActStage() {
-  const [index, setIndex] = useState(0);
-  const act = ACTS[index] ?? ACTS[0];
+  const stage = useStageIndex(ACTS.length);
+  const act = ACTS[stage.index] ?? ACTS[0];
 
   return (
     <div className="torns-act-stage">
-      <StationPhoto file={act.file} className="torns-act-photo" />
+      <StageSlide id={act.id} direction={stage.direction} className="torns-act-media">
+        <StationPhoto file={act.file} className="torns-act-photo" />
+      </StageSlide>
       <div className="torns-act-copy">
-        <p className="torns-act-index">0{index + 1}</p>
-        <h3>{act.title}</h3>
-        <p>{act.body}</p>
-        <div className="torns-act-scheme" data-act={act.id}>
-          {act.id === "espera" ? (
-            <>
-              <p>{copy.problemExpected}</p>
-              <span className="torns-qual-bar" data-qual="expected" />
-              <p className="contrast-real">{copy.problemReal}</p>
-              <span className="torns-qual-bar" data-qual="real" />
-            </>
-          ) : null}
-          {act.id === "ve" ? <span className="signal-node" aria-hidden="true" /> : null}
-          {act.id === "mide" ? <p>{copy.detectHint}</p> : null}
-          {act.id === "actua" ? (
-            <p>
-              {copy.capRecommend}: {copy.capRecommendBody}
-            </p>
-          ) : null}
-        </div>
+        <StageSlide id={`${act.id}-copy`} direction={stage.direction}>
+          <p className="torns-act-index">
+            0{stage.index + 1} / 0{ACTS.length}
+          </p>
+          <h3>{act.title}</h3>
+          <p>{act.body}</p>
+          <div className="torns-act-scheme" data-act={act.id}>
+            {act.id === "espera" ? (
+              <>
+                <p>{copy.problemExpected}</p>
+                <span className="torns-qual-bar" data-qual="expected" />
+                <p className="contrast-real">{copy.problemReal}</p>
+                <span className="torns-qual-bar" data-qual="real" />
+              </>
+            ) : null}
+            {act.id === "ve" ? <span className="signal-node" aria-hidden="true" /> : null}
+            {act.id === "mide" ? <p>{copy.detectHint}</p> : null}
+            {act.id === "actua" ? (
+              <p>
+                {copy.capRecommend}: {copy.capRecommendBody}
+              </p>
+            ) : null}
+          </div>
+        </StageSlide>
         <StageControls
-          atStart={index === 0}
-          atEnd={index === ACTS.length - 1}
-          onPrev={() => setIndex((current) => Math.max(0, current - 1))}
-          onNext={() => setIndex((current) => Math.min(ACTS.length - 1, current + 1))}
+          atStart={stage.atStart}
+          atEnd={stage.atEnd}
+          onPrev={stage.goPrev}
+          onNext={stage.goNext}
         />
       </div>
     </div>

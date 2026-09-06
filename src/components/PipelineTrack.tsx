@@ -1,30 +1,57 @@
-import { useState } from "react";
+import { motion } from "motion/react";
 import { copy } from "../content/copy";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
+import { useStageIndex } from "../hooks/useStageIndex";
 import { StageControls } from "./StageControls";
 
 export function PipelineTrack() {
-  const [index, setIndex] = useState(0);
-  const last = copy.systemSteps.length - 1;
+  const stage = useStageIndex(copy.systemSteps.length);
+  const reduce = usePrefersReducedMotion();
 
   return (
     <div className="torns-pipeline">
       <ol className="pipeline">
-        {copy.systemSteps.map((step, stepIndex) => (
-          <li
-            key={step}
-            aria-current={stepIndex === index ? "step" : undefined}
-          >
-            <span className="signal-node" aria-hidden="true" />
-            <strong>{step}</strong>
-            {stepIndex === index ? <p>{copy.systemStepBodies[stepIndex]}</p> : null}
-          </li>
-        ))}
+        {copy.systemSteps.map((step, stepIndex) => {
+          const active = stepIndex === stage.index;
+          return (
+            <li
+              key={step}
+              aria-current={active ? "step" : undefined}
+              className={active ? "is-active" : undefined}
+            >
+              <motion.span
+                className="signal-node"
+                aria-hidden="true"
+                animate={
+                  reduce
+                    ? undefined
+                    : {
+                        scale: active ? 1.35 : 1,
+                        opacity: active ? 1 : 0.4,
+                      }
+                }
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              />
+              <strong>{step}</strong>
+              {active ? (
+                <motion.p
+                  key={`body-${stepIndex}`}
+                  initial={reduce ? false : { opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {copy.systemStepBodies[stepIndex]}
+                </motion.p>
+              ) : null}
+            </li>
+          );
+        })}
       </ol>
       <StageControls
-        atStart={index === 0}
-        atEnd={index === last}
-        onPrev={() => setIndex((current) => Math.max(0, current - 1))}
-        onNext={() => setIndex((current) => Math.min(last, current + 1))}
+        atStart={stage.atStart}
+        atEnd={stage.atEnd}
+        onPrev={stage.goPrev}
+        onNext={stage.goNext}
       />
     </div>
   );

@@ -35,8 +35,9 @@ it("starts on act 1 and advances without wrapping", async () => {
 
 it("keeps the expected/real schematic qualitative", () => {
   const { container } = render(<ActStage />);
-  expect(container.querySelector("[data-act='espera']")).not.toBeNull();
-  expect(screen.getByText(copy.problemExpected)).toBeInTheDocument();
-  expect(screen.getByText(copy.problemReal)).toBeInTheDocument();
-  expect(container.querySelector("[data-act='espera']")?.textContent).not.toMatch(/%/);
+  const scheme = container.querySelector("[data-act='espera']");
+  expect(scheme).not.toBeNull();
+  expect(scheme?.textContent).toContain(copy.problemExpected);
+  expect(scheme?.textContent).toContain(copy.problemReal);
+  expect(scheme?.textContent).not.toMatch(/%/);
 });

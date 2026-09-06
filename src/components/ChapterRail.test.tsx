@@ -3,7 +3,7 @@ import { expect, it } from "vitest";
 import { copy } from "../content/copy";
 import { ChapterRail } from "./ChapterRail";
 
-it("links the four TORNS chapters", () => {
+it("links the TORNS chapters including the problem band", () => {
   render(<ChapterRail />);
   expect(screen.getByRole("link", { name: copy.chapterProduct })).toHaveAttribute(
     "href",
@@ -12,6 +12,10 @@ it("links the four TORNS chapters", () => {
   expect(screen.getByRole("link", { name: copy.chapterSystem })).toHaveAttribute(
     "href",
     "#sistema",
+  );
+  expect(screen.getByRole("link", { name: copy.problemTitle })).toHaveAttribute(
+    "href",
+    "#problema",
   );
   expect(screen.getByRole("link", { name: copy.chapterCase })).toHaveAttribute(
     "href",

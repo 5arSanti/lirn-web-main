@@ -18,7 +18,8 @@ it("explains the product first, then the Transmilenio case and evidence", async 
   expect(root).not.toBeNull();
   const html = root?.innerHTML ?? "";
   expect(html.indexOf('id="producto"')).toBeLessThan(html.indexOf('id="sistema"'));
-  expect(html.indexOf('id="sistema"')).toBeLessThan(html.indexOf('id="caso"'));
+  expect(html.indexOf('id="sistema"')).toBeLessThan(html.indexOf('id="problema"'));
+  expect(html.indexOf('id="problema"')).toBeLessThan(html.indexOf('id="caso"'));
   expect(html.indexOf(copy.storyWaitTitle)).toBeLessThan(html.indexOf(copy.problemBody));
   expect(html.indexOf(copy.problemBody)).toBeLessThan(html.indexOf(evidence.interviewRole));
 
@@ -43,6 +44,9 @@ it("explains the product first, then the Transmilenio case and evidence", async 
   expect(screen.getByText(evidence.conclusions)).toBeInTheDocument();
   expect(screen.getByText(copy.close)).toBeInTheDocument();
   expect(screen.queryByText(copy.mission)).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole("link", { name: copy.ctaTalk }),
+  ).not.toBeInTheDocument();
 
   const systemNext = screen.getAllByRole("button", { name: copy.controlNext })[0];
   await user.click(systemNext);
