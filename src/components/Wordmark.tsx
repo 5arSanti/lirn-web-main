@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const SRC: Record<"LIRN" | "TORNS", string> = {
-  LIRN: `${import.meta.env.BASE_URL}lirn-wordmark.png`,
+  LIRN: `${import.meta.env.BASE_URL}lirn-wordmark.svg`,
   TORNS: `${import.meta.env.BASE_URL}torns-mark.png`,
 };
 
