@@ -2,12 +2,12 @@ import { useState } from "react";
 
 const FILES = {
   wordmark: {
-    dark: "LIRN-v1 - white.jfif",
-    light: "LIRN-v1 - black.jfif",
+    dark: "LIRN-v1 - black.jfif",
+    light: "LIRN-v1 - white.jfif",
   },
   icon: {
-    dark: "LIRN-v2 - white.jfif",
-    light: "LIRN-v2 - black.jfif",
+    dark: "LIRN-v2 - black.jfif",
+    light: "LIRN-v2 - white.jfif",
   },
 } as const;
 

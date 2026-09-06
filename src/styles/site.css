@@ -1420,3 +1420,13 @@
     margin-inline: 0;
   }
 }
+
+.brand-mark-wordmark {
+  height: 1.4rem;
+  width: auto;
+}
+
+.brand-mark-icon {
+  height: 2rem;
+  width: auto;
+}
