@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SiteFooter } from "./components/SiteFooter";
 import { SiteNav } from "./components/SiteNav";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -14,6 +15,7 @@ export function App() {
         <Route path="/torns" element={<TornsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <SiteFooter />
     </BrowserRouter>
   );
 }
