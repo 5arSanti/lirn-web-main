@@ -135,10 +135,7 @@ export const evidence = {
         "Estimación del equipo: duración declarada × frecuencia declarada.",
       analysis:
         "El promedio da 3 horas al mes por persona. Un 25% supera las 6 horas mensuales. Esta cifra es una estimación, no una medición de operador.",
-      bars: [
-        { label: "Promedio ~3 h / mes", value: 100 },
-        { label: "Más de 6 h / mes", value: 25 },
-      ],
+      bars: [{ label: "Más de 6 h / mes", value: 25 }],
     },
     {
       id: "q8",

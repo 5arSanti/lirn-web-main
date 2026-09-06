@@ -42,7 +42,7 @@ a {
 
 .site-nav-links a:hover,
 .site-nav-links a.active {
-  color: var(--activity);
+  color: var(--activity-ink);
 }
 
 .page {
@@ -204,7 +204,11 @@ a {
 }
 
 .btn-primary:hover,
-.site-nav-cta:hover,
+.site-nav-cta:hover {
+  color: var(--activity-ink);
+}
+
+.band-white .btn-primary:hover,
 .btn-secondary:hover {
   color: var(--activity);
 }
@@ -320,7 +324,7 @@ blockquote p {
 }
 
 .contrast-real {
-  color: var(--activity);
+  color: var(--activity-ink);
 }
 
 .pipeline {
@@ -343,7 +347,7 @@ blockquote p {
   content: "0" counter(pipeline);
   position: absolute;
   top: 1rem;
-  color: var(--activity);
+  color: var(--activity-ink);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
 }

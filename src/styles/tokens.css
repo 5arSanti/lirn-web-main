@@ -3,6 +3,7 @@
   --white: #ffffff;
   --graphite: #6b7280;
   --activity: #00a8ff;
+  --activity-ink: #006da8;
   --font: "Manrope", sans-serif;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --cut: 12%;
@@ -44,6 +45,11 @@ body {
 :focus-visible {
   outline: 2px solid var(--activity);
   outline-offset: 3px;
+}
+
+.site-nav :focus-visible,
+.band-white :focus-visible {
+  outline-color: var(--activity-ink);
 }
 
 a {

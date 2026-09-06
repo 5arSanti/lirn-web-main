@@ -24,4 +24,11 @@ describe("evidence", () => {
     expect(evidence.conclusions).toMatch(/80%/);
     expect(evidence.questions[6]?.analysis.toLowerCase()).toMatch(/estimaci/);
   });
+
+  it("keeps the q7 estimate in prose and only charts the measured percentage", () => {
+    const q7 = evidence.questions.find((question) => question.id === "q7");
+
+    expect(q7?.analysis).toMatch(/3 horas al mes/);
+    expect(q7?.bars).toEqual([{ label: "Más de 6 h / mes", value: 25 }]);
+  });
 });

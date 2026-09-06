@@ -65,5 +65,4 @@ export const copy = {
   validationTitle: "Validación",
   close: "Cualquier sistema masivo con estaciones.",
   notFound: "Esta página no existe.",
-  qrLegend: "Abrir la landing de TORNS",
 } as const;
