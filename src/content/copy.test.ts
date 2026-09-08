@@ -55,4 +55,27 @@ describe("copy", () => {
     expect(copy.actMide).toBe("Mide");
     expect(copy.actActua).toBe("Actúa");
   });
+
+  it("names TORNS team, empresa chapter, and live contact form chrome", () => {
+    expect(copy.chapterEmpresa).toBe("Empresa");
+    expect(copy.chapterContact).toBe("Contacto");
+    expect(copy.teamMembers).toEqual([
+      "Johel Santiago Arias",
+      "Rebeca Pedrozo",
+      "Hanna Cerinza",
+    ]);
+    expect(copy.contactFormTitle).toBe("Contacto");
+    expect(copy.contactFormBody).toMatch(/sistema masivo/i);
+    expect(copy.contactNameLabel).toBe("Nombre");
+    expect(copy.contactEmailLabel).toBe("Email");
+    expect(copy.contactOrgLabel).toBe("Organización");
+    expect(copy.contactMessageLabel).toBe("Mensaje");
+    expect(copy.contactSubmit).toBe("Enviar");
+    expect(copy.contactSending).toBe("Enviando…");
+    expect(copy.contactSuccess).toMatch(/recibimos/i);
+    expect(copy.contactError).toMatch(/intente de nuevo/i);
+    expect(copy.contactMissingEndpoint).toMatch(/no configurado/i);
+    expect(copy.contactRequired).toMatch(/obligatorio/i);
+    expect(copy.contactInvalidEmail).toMatch(/email/i);
+  });
 });
