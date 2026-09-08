@@ -1165,6 +1165,30 @@ a {
   padding-block: clamp(4.5rem, 11vw, 8.5rem);
 }
 
+.torns-team-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: var(--torns-block-gap) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.torns-team-list li {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--activity-ink) 28%, transparent);
+  color: var(--black);
+}
+
+@media (max-width: 52rem) {
+  .torns-team-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .torns-system > .display + .torns-act-stage,
 .torns-system > .display + .torns-pipeline {
   margin-top: clamp(2rem, 5vw, 3.5rem);
