@@ -60,9 +60,9 @@ describe("copy", () => {
     expect(copy.chapterEmpresa).toBe("Empresa");
     expect(copy.chapterContact).toBe("Contacto");
     expect(copy.teamMembers).toEqual([
-      "Johel Santiago Arias",
-      "Rebeca Pedrozo",
-      "Hanna Cerinza",
+      "Rebeca Pedrozo Cueto",
+      "Johel Santiago Arias Becerra",
+      "Hanna Cerinza Contreras",
     ]);
     expect(copy.contactFormTitle).toBe("Contacto");
     expect(copy.contactFormBody).toMatch(/sistema masivo/i);

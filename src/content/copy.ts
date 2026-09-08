@@ -104,9 +104,9 @@ export const copy = {
   chapterEmpresa: "Empresa",
   chapterContact: "Contacto",
   teamMembers: [
-    "Johel Santiago Arias",
-    "Rebeca Pedrozo",
-    "Hanna Cerinza",
+    "Rebeca Pedrozo Cueto",
+    "Johel Santiago Arias Becerra",
+    "Hanna Cerinza Contreras",
   ] as const,
   contactFormTitle: "Contacto",
   contactFormBody:
