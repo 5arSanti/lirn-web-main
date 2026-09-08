@@ -4,7 +4,7 @@ import { expect, it } from "vitest";
 import { copy } from "../content/copy";
 import { SiteNav } from "./SiteNav";
 
-it("links firm, product, and reserved contact", () => {
+it("links firm, product, and live contact", () => {
   render(
     <MemoryRouter>
       <SiteNav />
