@@ -3,26 +3,18 @@ import { expect, it } from "vitest";
 import { copy } from "../content/copy";
 import { ChapterRail } from "./ChapterRail";
 
-it("links the TORNS chapters including the problem band", () => {
+it("links TORNS chapters including empresa and contact", () => {
   render(<ChapterRail />);
-  expect(screen.getByRole("link", { name: copy.chapterProduct })).toHaveAttribute(
-    "href",
+  const links = screen.getAllByRole("link");
+  expect(links.map((l) => l.getAttribute("href"))).toEqual([
     "#producto",
-  );
-  expect(screen.getByRole("link", { name: copy.chapterSystem })).toHaveAttribute(
-    "href",
+    "#empresa",
     "#sistema",
-  );
-  expect(screen.getByRole("link", { name: copy.problemTitle })).toHaveAttribute(
-    "href",
     "#problema",
-  );
-  expect(screen.getByRole("link", { name: copy.chapterCase })).toHaveAttribute(
-    "href",
     "#caso",
-  );
-  expect(screen.getByRole("link", { name: copy.chapterClose })).toHaveAttribute(
-    "href",
     "#cierre",
-  );
+    "#contacto",
+  ]);
+  expect(screen.getByRole("link", { name: copy.chapterEmpresa })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: copy.chapterContact })).toBeInTheDocument();
 });

@@ -17,9 +17,11 @@ it("explains the product first, then the Transmilenio case and evidence", async 
   const root = document.querySelector(".page-torns");
   expect(root).not.toBeNull();
   const html = root?.innerHTML ?? "";
-  expect(html.indexOf('id="producto"')).toBeLessThan(html.indexOf('id="sistema"'));
+  expect(html.indexOf('id="producto"')).toBeLessThan(html.indexOf('id="empresa"'));
+  expect(html.indexOf('id="empresa"')).toBeLessThan(html.indexOf('id="sistema"'));
   expect(html.indexOf('id="sistema"')).toBeLessThan(html.indexOf('id="problema"'));
   expect(html.indexOf('id="problema"')).toBeLessThan(html.indexOf('id="caso"'));
+  expect(html.indexOf('id="cierre"')).toBeLessThan(html.indexOf('id="contacto"'));
   expect(html.indexOf(copy.storyWaitTitle)).toBeLessThan(html.indexOf(copy.problemBody));
   expect(html.indexOf(copy.problemBody)).toBeLessThan(html.indexOf(evidence.interviewRole));
 
@@ -43,6 +45,11 @@ it("explains the product first, then the Transmilenio case and evidence", async 
   expect(screen.getByText(evidence.questions[0].title)).toBeInTheDocument();
   expect(screen.getByText(evidence.conclusions)).toBeInTheDocument();
   expect(screen.getByText(copy.close)).toBeInTheDocument();
+  expect(screen.getByText(copy.companyBody)).toBeInTheDocument();
+  for (const name of copy.teamMembers) {
+    expect(screen.getByText(name)).toBeInTheDocument();
+  }
+  expect(screen.getByRole("heading", { name: copy.contactFormTitle })).toBeInTheDocument();
   expect(screen.queryByText(copy.mission)).not.toBeInTheDocument();
   expect(
     screen.queryByRole("link", { name: copy.ctaTalk }),

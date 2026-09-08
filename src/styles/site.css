@@ -1719,9 +1719,11 @@ a {
 }
 
 #producto,
+#empresa,
 #sistema,
 #problema,
 #caso,
-#cierre {
+#cierre,
+#contacto {
   scroll-margin-top: 8rem;
 }

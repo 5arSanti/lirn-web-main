@@ -4,6 +4,8 @@ import { ActStage } from "../components/ActStage";
 import { BrandMark } from "../components/BrandMark";
 import { ByLirn } from "../components/ByLirn";
 import { ChapterRail } from "../components/ChapterRail";
+import { ContactForm } from "../components/ContactForm";
+import { TeamSection } from "../components/TeamSection";
 import { InterviewBlock } from "../components/InterviewBlock";
 import { PipelineTrack } from "../components/PipelineTrack";
 import { Reveal } from "../components/Reveal";
@@ -71,6 +73,8 @@ export function TornsPage() {
           </motion.div>
         </div>
       </section>
+
+      <TeamSection />
 
       <Reveal>
         <section
@@ -153,6 +157,8 @@ export function TornsPage() {
           </Link>
         </section>
       </Reveal>
+
+      <ContactForm />
     </main>
   );
 }
