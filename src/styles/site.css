@@ -1159,13 +1159,32 @@ a {
 .torns-case,
 .torns-discovery,
 .torns-validation,
-.torns-close {
+.torns-close,
+.torns-team,
+.torns-contact {
   padding-block: clamp(4.5rem, 11vw, 8.5rem);
 }
 
 .torns-system > .display + .torns-act-stage,
 .torns-system > .display + .torns-pipeline {
   margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.torns-system > .torns-act-stage + .display,
+.torns-system > .torns-pipeline + .display,
+.torns-system > .torns-pipeline + .system-grid,
+.torns-system > .system-grid {
+  margin-top: var(--torns-block-gap);
+}
+
+.page-torns .display:not(:first-child) {
+  margin-top: var(--torns-block-gap);
+}
+
+/* First display inside a Reveal-wrapped section should not double-stack */
+.page-torns section > .display:first-child,
+.page-torns .torns-section-head .display {
+  margin-top: 0;
 }
 
 .torns-act-stage,
