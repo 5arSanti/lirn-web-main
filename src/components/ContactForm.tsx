@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState, type FormEvent } from "react";
 import { copy } from "../content/copy";
 import { submitContact } from "../lib/submitContact";
 import { Reveal } from "./Reveal";
