@@ -1192,11 +1192,15 @@ a {
   display: grid;
   gap: var(--torns-block-gap);
   max-width: 40rem;
+  margin-top: var(--torns-block-gap);
 }
 
 .torns-contact-form label {
   display: grid;
   gap: 0.55rem;
+}
+
+.torns-contact-form label span {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1211,6 +1215,11 @@ a {
   background: var(--white);
   color: var(--black);
   font: inherit;
+}
+
+.torns-contact-form textarea {
+  resize: vertical;
+  min-height: 8rem;
 }
 
 .torns-contact-form input:focus-visible,
@@ -1258,60 +1267,6 @@ a {
   .torns-team-list {
     grid-template-columns: 1fr;
   }
-}
-
-.torns-contact-form {
-  display: grid;
-  gap: var(--torns-block-gap);
-  max-width: 40rem;
-  margin-top: var(--torns-block-gap);
-}
-
-.torns-contact-form label {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.torns-contact-form label span {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.torns-contact-form input,
-.torns-contact-form textarea {
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--white) 35%, transparent);
-  border-radius: 0.25rem;
-  background: var(--white);
-  color: var(--black);
-  font: inherit;
-}
-
-.torns-contact-form textarea {
-  resize: vertical;
-  min-height: 8rem;
-}
-
-.torns-contact-form em {
-  font-style: normal;
-  font-size: 0.85rem;
-  color: color-mix(in srgb, var(--white) 90%, #ffb4b4);
-}
-
-.torns-contact-ok,
-.torns-contact-fail {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-.torns-contact-ok {
-  color: color-mix(in srgb, var(--white) 92%, #b8f5c8);
-}
-
-.torns-contact-fail {
-  color: color-mix(in srgb, var(--white) 90%, #ffb4b4);
 }
 
 .torns-system > .display + .torns-act-stage,
