@@ -34,4 +34,12 @@ describe("App hash scrolling", () => {
 
     await waitFor(() => expect(scrollIntoView).toHaveBeenCalledOnce());
   });
+
+  it("scrolls the TORNS contact form when loaded with its hash", async () => {
+    window.history.replaceState(null, "", "/lirn-web-main/torns#contacto");
+
+    render(<App />);
+
+    await waitFor(() => expect(scrollIntoView).toHaveBeenCalledOnce());
+  });
 });

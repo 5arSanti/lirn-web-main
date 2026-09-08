@@ -10,7 +10,7 @@ export function SiteFooter() {
       <BrandMark variant="icon" on="dark" decorative />
       <strong>{copy.lirnName}</strong>
       <p>{copy.footerBlurb}</p>
-      <Link to={torns ? "/#contacto" : "/torns"}>
+      <Link to={torns ? "/torns#contacto" : "/torns"}>
         {torns ? copy.ctaTalk : copy.verTorns}
       </Link>
     </footer>

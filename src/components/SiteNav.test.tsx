@@ -15,8 +15,12 @@ it("links firm, product, and reserved contact", () => {
     "href",
     "/torns",
   );
+  expect(screen.getByRole("link", { name: copy.navContacto })).toHaveAttribute(
+    "href",
+    "/torns#contacto",
+  );
   expect(screen.getByRole("link", { name: copy.ctaTalk })).toHaveAttribute(
     "href",
-    "/#contacto",
+    "/torns#contacto",
   );
 });

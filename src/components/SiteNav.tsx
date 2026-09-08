@@ -13,8 +13,8 @@ export function SiteNav() {
       <div className="site-nav-links">
         <Link to="/#empresa">{copy.navEmpresa}</Link>
         <Link to="/torns">{copy.navTorns}</Link>
-        <Link to="/#contacto">{copy.navContacto}</Link>
-        <Link className="site-nav-cta" to="/#contacto">
+        <Link to="/torns#contacto">{copy.navContacto}</Link>
+        <Link className="site-nav-cta" to="/torns#contacto">
           {copy.ctaTalk}
         </Link>
       </div>
