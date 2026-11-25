@@ -110,6 +110,54 @@ function PlanosVisual() {
   );
 }
 
+function HoyVisual() {
+  return (
+    <div className="plan-visual plan-visual-hoy">
+      <article className="plan-card">{copy.planHoyPerson}</article>
+      <article className="plan-card">{copy.planHoyComputer}</article>
+      <article className="plan-card">{copy.planHoyPrototype}</article>
+      <article className="plan-card">{copy.planHoyBackup}</article>
+    </div>
+  );
+}
+
+function PuntosVisual() {
+  return (
+    <ol className="plan-visual plan-points">
+      <li>
+        <span className="plan-point-index" aria-hidden="true">
+          1
+        </span>
+        <strong>{copy.planPuntoNegocio}</strong>
+      </li>
+      <li>
+        <span className="plan-point-index" aria-hidden="true">
+          2
+        </span>
+        <strong>{copy.planPuntoDatos}</strong>
+      </li>
+      <li>
+        <span className="plan-point-index" aria-hidden="true">
+          3
+        </span>
+        <strong>{copy.planPuntoApps}</strong>
+      </li>
+      <li>
+        <span className="plan-point-index" aria-hidden="true">
+          4
+        </span>
+        <strong>{copy.planPuntoTech}</strong>
+      </li>
+      <li>
+        <span className="plan-point-index" aria-hidden="true">
+          5
+        </span>
+        <strong>{copy.planPuntoRoadmap}</strong>
+      </li>
+    </ol>
+  );
+}
+
 function RutaVisual() {
   return (
     <ol className="plan-visual plan-timeline">
@@ -157,6 +205,10 @@ function visualFor(kind: PlanBeat["kind"]) {
       return <LimiteVisual />;
     case "planos":
       return <PlanosVisual />;
+    case "hoy":
+      return <HoyVisual />;
+    case "puntos":
+      return <PuntosVisual />;
     case "ruta":
       return <RutaVisual />;
     case "cierre":

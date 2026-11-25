@@ -1865,7 +1865,7 @@ body:has(.page-plan) .site-footer {
 }
 
 .plan-copy .display {
-  max-inline-size: 12ch;
+  max-inline-size: 18ch;
   margin-block: 0 0.15rem;
   color: var(--plan-ink);
 }
@@ -1979,8 +1979,13 @@ body:has(.page-plan) .site-footer {
   transform-origin: left center;
 }
 
-.plan-visual-limits {
+.plan-visual-limits,
+.plan-visual-hoy {
   gap: 0.85rem;
+}
+
+.plan-visual-hoy {
+  grid-template-columns: 1fr 1fr;
 }
 
 .plan-card {
@@ -2033,6 +2038,37 @@ body:has(.page-plan) .site-footer {
   background: color-mix(in oklab, var(--activity) 16%, transparent);
   color: var(--activity-ink);
   clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+}
+
+.plan-points {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-points li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--plan-line);
+  background: var(--white);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.plan-point-index {
+  display: grid;
+  place-items: center;
+  inline-size: 1.65rem;
+  block-size: 1.65rem;
+  border: 1px solid var(--activity-ink);
+  color: var(--activity-ink);
+  font-size: 0.8rem;
+  letter-spacing: 0;
 }
 
 .plan-timeline {
@@ -2126,11 +2162,13 @@ body:has(.page-plan) .site-footer {
 @container plan (max-width: 48rem) {
   .plan-stage {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: min-content min-content min-content;
     grid-template-areas:
       "codes"
       "copy"
       "visual";
     align-items: start;
+    align-content: start;
     overflow: auto;
   }
 
@@ -2153,11 +2191,13 @@ body:has(.page-plan) .site-footer {
 @media (max-width: 48rem) {
   .plan-stage {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: min-content min-content min-content;
     grid-template-areas:
       "codes"
       "copy"
       "visual";
     align-items: start;
+    align-content: start;
     overflow: auto;
   }
 
@@ -2190,6 +2230,7 @@ body:has(.page-plan) .site-footer {
   .page-plan,
   .plan-visual,
   .plan-card,
+  .plan-points li,
   .plan-timeline li {
     background: Canvas;
     color: CanvasText;

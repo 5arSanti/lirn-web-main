@@ -10,7 +10,7 @@ afterEach(() => {
   cleanup();
 });
 
-it("plays the seven scenes by hand and keeps closing CTAs", async () => {
+it("plays the nine scenes by hand and keeps closing CTAs", async () => {
   const user = userEvent.setup();
   render(
     <MemoryRouter initialEntries={["/plan"]}>
@@ -23,10 +23,10 @@ it("plays the seven scenes by hand and keeps closing CTAs", async () => {
     "aria-live",
     "polite",
   );
-  for (let i = 0; i < 6; i += 1) {
+  for (let i = 0; i < 8; i += 1) {
     await user.click(screen.getByRole("button", { name: copy.controlNext }));
   }
-  expect(screen.getByText(PLAN_BEATS[6].spoken)).toBeInTheDocument();
+  expect(screen.getByText(PLAN_BEATS[8].spoken)).toBeInTheDocument();
   expect(screen.getByRole("link", { name: copy.verTorns })).toHaveAttribute(
     "href",
     "/torns",
@@ -43,7 +43,9 @@ it("lands on a hashed scene paused", () => {
       <PlanPage />
     </MemoryRouter>,
   );
-  expect(screen.getByText(PLAN_BEATS[5].spoken)).toBeInTheDocument();
+  const ruta = PLAN_BEATS.find((beat) => beat.id === "ruta");
+  expect(ruta).toBeDefined();
+  expect(screen.getByText(ruta!.spoken)).toBeInTheDocument();
   expect(
     screen.getByRole("button", { name: copy.controlPlay }),
   ).toBeInTheDocument();

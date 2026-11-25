@@ -4,7 +4,7 @@ import { expect, it, vi } from "vitest";
 import { PLAN_BEATS } from "../content/plan";
 import { PlanRail } from "./PlanRail";
 
-it("lists seven chapters and reports the current beat", async () => {
+it("lists nine chapters and reports the current beat", async () => {
   const onSelect = vi.fn();
   const user = userEvent.setup();
   render(
@@ -15,7 +15,19 @@ it("lists seven chapters and reports the current beat", async () => {
     />,
   );
   const nav = screen.getByRole("navigation", { name: "Plan de LIRN" });
-  expect(nav.querySelectorAll("a")).toHaveLength(7);
+  expect(nav.querySelectorAll("a")).toHaveLength(9);
+  expect(screen.getByRole("link", { name: "Taller" })).toHaveAttribute(
+    "href",
+    "#planos",
+  );
+  expect(screen.getByRole("link", { name: "Hoy" })).toHaveAttribute(
+    "href",
+    "#hoy",
+  );
+  expect(screen.getByRole("link", { name: "Puntos" })).toHaveAttribute(
+    "href",
+    "#puntos",
+  );
   expect(screen.getByRole("link", { name: "Ruta" })).toHaveAttribute(
     "href",
     "#ruta",

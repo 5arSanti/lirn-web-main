@@ -66,8 +66,10 @@ describe("copy", () => {
     expect(copy.planNodeCamera).toBe("cámara");
     expect(copy.planNodeCount).toBe("conteo");
     expect(copy.planNodeRecommend).toBe("recomendación");
-    expect(copy.planGround).toBe("terreno");
-    expect(copy.planBuilding).toBe("edificio");
+    expect(copy.planGround).toBe("AS-IS");
+    expect(copy.planBuilding).toBe("TO-BE");
+    expect(copy.planHoyPerson).toBe("Una persona");
+    expect(copy.planPuntoRoadmap).toBe("Transformación");
     expect(copy.planHorizonShort).toBe("0–1 año");
     expect(copy.planHorizonMid).toBe("1–3 años");
     expect(copy.planHorizonLong).toBe("3–5 años");

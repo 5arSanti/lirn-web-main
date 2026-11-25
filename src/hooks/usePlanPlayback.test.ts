@@ -43,11 +43,11 @@ describe("usePlanPlayback", () => {
       result.current.play();
     });
     act(() => {
-      vi.advanceTimersByTime(20000);
+      vi.advanceTimersByTime(22000);
     });
     expect(result.current.beat.id).toBe("cierre");
     expect(result.current.playing).toBe(false);
-    expect(result.current.sceneElapsedMs).toBe(20000);
+    expect(result.current.sceneElapsedMs).toBe(22000);
   });
 
   it("starts paused on a non-firma hash and when motion is reduced", () => {

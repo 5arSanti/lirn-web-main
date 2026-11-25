@@ -16,30 +16,35 @@ const SPOKEN = {
   limite:
     "Conviene decir, entonces, lo que no es. No es un piloto firmado ni hay clientes. Tampoco optimiza todas las rutas de la ciudad ni predice la demanda histórica: cuenta personas y aplica una regla de despacho. Aun así, el prototipo existe y se puede consultar, porque el sitio, la página del producto y el código están publicados.",
   planos:
-    "Para pasar de prototipo a empresa se usó arquitectura empresarial. El método, en ese sentido, es como los planos de una obra: primero se dibuja lo que existe; después, lo que se quiere levantar; y, al final, el orden en que conviene construirlo. Hoy LIRN cabe en un computador y en una persona. Eso, por ahora, es el terreno, no el edificio.",
-  ruta: "El cambio, por tanto, va en un orden. Primero la empresa tiene que existir y tratar bien los datos de las personas. Solo entonces puede medir con rigor y no perder el conteo al apagar. Después puede cobrar por lo que mide. Únicamente al final tiene sentido conectarse con el control de un tercero. Así, en el primer año corresponde formalizar, abrir un canal honesto y respaldar lo crítico. Entre el primero y el tercero entra el video real de estación y un primer piloto pagado. Entre el tercero y el quinto, por último, llevar la recomendación al operador.",
+    "El taller pidió aplicar TOGAF a una organización real y diseñar una arquitectura que apoye sus objetivos. La organización es LIRN; el único producto es TORNS. El método es como los planos de una obra: primero el AS-IS, lo que existe; después el TO-BE, lo que se quiere levantar; y al final el orden de la obra. El resultado es un informe único: el Plan de Transformación Empresarial.",
+  hoy: "Hoy el terreno es estrecho. LIRN aún no está constituida y la conforma una sola persona, su fundador. TORNS es un prototipo aplicado: toma video, cuenta personas y recomienda despacho. No es un piloto firmado y no hay clientes. TransMilenio y el SITP sirven como caso de estudio. Cinco procesos cubren dirección, contacto, producto, acompañamiento y evidencia. El software, además, vive en cuatro superficies, en un solo computador. El conteo se pierde al apagar. No hay respaldo. El video puede incluir imagen de personas y todavía no hay una política de datos publicada.",
+  puntos:
+    "Con ese terreno se recorrieron los cinco puntos del taller. En negocio se fijaron misión, visión y cinco objetivos, un organigrama de una persona, el mapa de procesos y las capacidades que existen y las que faltan. En datos se inventarió lo que circula: leads, encuesta, video, conteos y código; y se vio el problema: memoria volátil y una hoja de cálculo suelta. En aplicaciones se describieron las cuatro superficies y se constató que no hay CRM ni ERP, y que abrir el video dispara la inferencia. En tecnología se documentó la estación de trabajo, las páginas públicas, una GPU obsoleta y un disco cerca de su capacidad; la nube quedó como alternativa, no como decisión tomada. En transformación se cruzó el AS-IS con el TO-BE, se nombraron veintiséis brechas y se armó el portafolio y la hoja de ruta a cinco años.",
+  ruta: "El edificio que se quiere no es una empresa grande. Es una firma pequeña que ya no dependa de un solo computador ni de una sola persona. Por eso el orden es estricto. En el primer año: formalizar, abrir un canal honesto y respaldar lo crítico. Entre el primero y el tercero: video real de estación y un primer piloto pagado. Entre el tercero y el quinto: llevar la recomendación al operador, con decisión humana.",
   cierre:
-    "Al final, LIRN seguirá siendo una empresa pequeña; no debería, sin embargo, depender de un solo computador ni de una sola persona. Cada paso, además, se puede seguir desde el objetivo que lo motiva hasta el proyecto que lo cumple.",
+    "Así, la arquitectura ayuda porque cada objetivo tiene un proyecto y un horizonte. No hay un impacto comercial que afirmar. Hay un camino: mostrar, cobrar y, solo al final, conectar. LIRN seguirá siendo una empresa pequeña; no debería, sin embargo, depender de un solo computador ni de una sola persona.",
 } as const;
 
 describe("PLAN_BEATS", () => {
-  it("keeps seven timed scenes and the canonical spoken text", () => {
+  it("keeps nine timed scenes and the canonical spoken text", () => {
     expect(PLAN_BEATS.map((beat) => beat.id)).toEqual([
       "firma",
       "desajuste",
       "producto",
       "limite",
       "planos",
+      "hoy",
+      "puntos",
       "ruta",
       "cierre",
     ]);
     expect(PLAN_BEATS.map((beat) => beat.durationMs)).toEqual([
-      28000, 32000, 42000, 28000, 38000, 52000, 20000,
+      28000, 32000, 42000, 28000, 29000, 40000, 61000, 32000, 22000,
     ]);
     expect(PLAN_BEATS.reduce((sum, beat) => sum + beat.durationMs, 0)).toBe(
       PLAN_TOTAL_MS,
     );
-    expect(PLAN_TOTAL_MS).toBe(240000);
+    expect(PLAN_TOTAL_MS).toBe(314000);
     for (const beat of PLAN_BEATS) {
       expect(beat.spoken).toBe(SPOKEN[beat.id]);
       expect(beat.kind).toBe(beat.id);
@@ -70,6 +75,8 @@ describe("PLAN_BEATS", () => {
 
   it("reads beat ids from hashes", () => {
     expect(beatIdFromHash("#ruta")).toBe("ruta");
+    expect(beatIdFromHash("#hoy")).toBe("hoy");
+    expect(beatIdFromHash("#puntos")).toBe("puntos");
     expect(beatIdFromHash("firma")).toBe("firma");
     expect(beatIdFromHash("#nope")).toBeUndefined();
   });

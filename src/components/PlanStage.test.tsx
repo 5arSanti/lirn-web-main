@@ -17,7 +17,7 @@ function renderStage(id: (typeof PLAN_BEATS)[number]["id"]) {
   );
 }
 
-it("renders the firma wordmark line and the seven visual kinds", () => {
+it("renders the firma wordmark line and the nine visual kinds", () => {
   const { rerender } = renderStage("firma");
   expect(screen.getByText(copy.planOnePerson)).toBeInTheDocument();
   expect(screen.getByText(beat("firma").spoken)).toBeInTheDocument();
@@ -53,6 +53,23 @@ it("renders the firma wordmark line and the seven visual kinds", () => {
   );
   expect(screen.getByText(copy.planGround)).toBeInTheDocument();
   expect(screen.getByText(copy.planBuilding)).toBeInTheDocument();
+  expect(screen.getByText("El taller")).toBeInTheDocument();
+
+  rerender(
+    <MemoryRouter>
+      <PlanStage beat={beat("hoy")} />
+    </MemoryRouter>,
+  );
+  expect(screen.getByText(copy.planHoyPerson)).toBeInTheDocument();
+  expect(screen.getByText(copy.planHoyBackup)).toBeInTheDocument();
+
+  rerender(
+    <MemoryRouter>
+      <PlanStage beat={beat("puntos")} />
+    </MemoryRouter>,
+  );
+  expect(screen.getByText(copy.planPuntoNegocio)).toBeInTheDocument();
+  expect(screen.getByText(copy.planPuntoRoadmap)).toBeInTheDocument();
 
   rerender(
     <MemoryRouter>
