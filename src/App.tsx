@@ -5,6 +5,7 @@ import { SiteNav } from "./components/SiteNav";
 import { SiteSkin } from "./components/SiteSkin";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { PlanPage } from "./pages/PlanPage";
 import { TornsPage } from "./pages/TornsPage";
 import "./styles/site.css";
 
@@ -16,6 +17,7 @@ export function App() {
       <SiteNav />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/plan" element={<PlanPage />} />
         <Route path="/torns" element={<TornsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

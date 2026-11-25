@@ -1727,3 +1727,512 @@ a {
 #contacto {
   scroll-margin-top: 8rem;
 }
+
+.page-plan {
+  --in-oklab: ;
+  --plan-ink: var(--black);
+  --plan-paper: var(--torns-air);
+  --plan-line: color-mix(in oklab, var(--torns-mid) 28%, var(--white));
+  --plan-veil: color-mix(in oklab, var(--activity) 16%, var(--torns-air));
+  color-scheme: light;
+  color: var(--plan-ink);
+  background: var(--plan-paper);
+  background: linear-gradient(
+    158deg var(--in-oklab),
+    var(--torns-air) 0%,
+    var(--white) 46%,
+    var(--plan-veil) 100%
+  );
+  block-size: 100dvh;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@supports (background: linear-gradient(in oklab, white, black)) {
+  .page-plan {
+    --in-oklab: in oklab;
+  }
+}
+
+body:has(.page-plan) {
+  background: var(--torns-air);
+  color-scheme: light;
+}
+
+body:has(.page-plan) .site-footer {
+  display: none;
+}
+
+.plan-rail {
+  position: relative;
+  z-index: 6;
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.75rem 1.25rem;
+  padding: 0.75rem var(--gutter);
+  background: color-mix(in oklab, var(--white) 78%, var(--torns-air));
+  border-bottom: 1px solid var(--plan-line);
+}
+
+.plan-rail a {
+  color: var(--graphite);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plan-rail a.is-current,
+.plan-rail a:hover,
+.plan-rail a:focus-visible {
+  color: var(--activity-ink);
+}
+
+.plan-frame {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 1;
+  min-block-size: 0;
+  overflow: clip;
+  container: plan / inline-size;
+}
+
+.plan-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      color-mix(in oklab, var(--activity) 9%, transparent) 0 1px,
+      transparent 1px 4.5rem
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--activity) 9%, transparent) 0 1px,
+      transparent 1px 4.5rem
+    );
+}
+
+.plan-stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 12rem) minmax(0, 1.2fr) minmax(16rem, 0.95fr);
+  grid-template-areas: "codes copy visual";
+  gap: clamp(1.25rem, 3.5vw, 3.5rem);
+  padding-block: clamp(1.25rem, 3vw, 2.5rem);
+  padding-inline: var(--gutter);
+  align-items: center;
+  min-block-size: 0;
+}
+
+.plan-codes {
+  grid-area: codes;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--activity-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.plan-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.plan-copy .display {
+  max-inline-size: 12ch;
+  margin-block: 0 0.15rem;
+  color: var(--plan-ink);
+}
+
+.plan-copy .prose {
+  max-inline-size: 65ch;
+  color: color-mix(in oklab, var(--black) 82%, var(--torns-mid));
+}
+
+.plan-visual-slot {
+  grid-area: visual;
+  display: grid;
+  min-inline-size: 0;
+  min-block-size: 0;
+  align-self: stretch;
+}
+
+.plan-support {
+  margin: 1rem 0 0;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.plan-visual {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-block-size: min(22rem, 48dvh);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  background: var(--white);
+  background: linear-gradient(
+    160deg var(--in-oklab),
+    var(--white),
+    color-mix(in oklab, var(--torns-panel) 22%, var(--white))
+  );
+  border: 1px solid var(--plan-line);
+}
+
+.plan-photo {
+  max-block-size: min(28rem, 42dvh);
+}
+
+.plan-photo img {
+  width: 100%;
+  height: 100%;
+  max-block-size: min(28rem, 42dvh);
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.12);
+}
+
+.plan-visual-firma {
+  gap: 1rem;
+}
+
+.page-plan .mark-watermark {
+  opacity: 0.1;
+}
+
+.plan-visual.is-product {
+  background: linear-gradient(
+    135deg var(--in-oklab),
+    var(--torns-air),
+    color-mix(in oklab, var(--torns-panel) 42%, var(--white))
+  );
+  color: var(--plan-ink);
+}
+
+.plan-visual.is-product .hero-brand {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+}
+
+.plan-visual.is-product .by-lirn {
+  color: var(--activity-ink);
+}
+
+.plan-nodes {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-nodes li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+
+.plan-mismatch-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-block-start: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+}
+
+.plan-signal-line {
+  display: block;
+  block-size: 2px;
+  margin-block-start: 1.25rem;
+  background: var(--activity);
+  transform: rotate(-8deg);
+  transform-origin: left center;
+}
+
+.plan-visual-limits {
+  gap: 0.85rem;
+}
+
+.plan-card {
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--plan-line);
+  background: var(--white);
+  color: var(--plan-ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.plan-blueprint {
+  display: grid;
+  min-block-size: 16rem;
+  inline-size: 100%;
+  place-items: stretch;
+  background-color: color-mix(in oklab, var(--torns-air) 70%, var(--white));
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      color-mix(in oklab, var(--activity-ink) 22%, transparent) 0 1px,
+      transparent 1px 8%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--activity-ink) 22%, transparent) 0 1px,
+      transparent 1px 8%
+    );
+}
+
+.plan-blueprint-layer {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.plan-blueprint-layer.is-ground {
+  color: var(--activity-ink);
+}
+
+.plan-blueprint-layer.is-building {
+  align-items: flex-start;
+  margin: 12% 8% 18% 18%;
+  border: 1px solid var(--activity-ink);
+  background: color-mix(in oklab, var(--activity) 16%, transparent);
+  color: var(--activity-ink);
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+}
+
+.plan-timeline {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-timeline li {
+  position: relative;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--plan-line);
+  overflow: clip;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  z-index: 0;
+  background: var(--white);
+}
+
+.plan-horizon-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  inline-size: 100%;
+  background: color-mix(in oklab, var(--activity) 22%, transparent);
+  z-index: -1;
+}
+
+.plan-close-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 1.5rem;
+}
+
+.page-plan .btn-primary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.page-plan .btn-secondary {
+  background: transparent;
+  color: var(--plan-ink);
+  border-color: var(--plan-ink);
+}
+
+.page-plan .btn-secondary:hover,
+.page-plan .btn-secondary:focus-visible {
+  color: var(--activity-ink);
+  border-color: var(--activity-ink);
+}
+
+.plan-controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem var(--gutter) 1.5rem;
+}
+
+.plan-controls .btn-secondary {
+  min-inline-size: 7.5rem;
+}
+
+.plan-controls [aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.plan-progress {
+  flex: 1 1 12rem;
+  block-size: 2px;
+  appearance: none;
+  border: 0;
+  background: var(--plan-line);
+  accent-color: var(--activity-ink);
+}
+
+.plan-progress::-webkit-progress-bar {
+  background: var(--plan-line);
+}
+
+.plan-progress::-webkit-progress-value,
+.plan-progress::-moz-progress-bar {
+  background: var(--activity-ink);
+}
+
+@container plan (max-width: 48rem) {
+  .plan-stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "codes"
+      "copy"
+      "visual";
+    align-items: start;
+    overflow: auto;
+  }
+
+  .plan-codes {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-self: start;
+  }
+
+  .plan-copy .prose {
+    font-size: 0.95rem;
+  }
+
+  .plan-visual {
+    min-block-size: 0;
+  }
+}
+
+@media (max-width: 48rem) {
+  .plan-stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "codes"
+      "copy"
+      "visual";
+    align-items: start;
+    overflow: auto;
+  }
+
+  .plan-codes {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .plan-copy .prose {
+    font-size: 0.95rem;
+  }
+
+  .plan-controls {
+    padding-block: 0.75rem 1rem;
+  }
+
+  .plan-controls .btn-secondary {
+    min-inline-size: 0;
+    flex: 1 1 5.5rem;
+    padding: 0.7rem 0.75rem;
+  }
+
+  .plan-progress {
+    flex: 1 0 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .page-plan,
+  .plan-visual,
+  .plan-card,
+  .plan-timeline li {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+
+  .plan-frame::before,
+  .plan-horizon-fill {
+    background: none;
+  }
+
+  .plan-signal-line,
+  .plan-progress::-webkit-progress-value,
+  .plan-progress::-moz-progress-bar {
+    background: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .plan-horizon-fill {
+    transform-origin: left center;
+    animation: plan-fill 0.7s var(--ease) both;
+  }
+
+  .plan-signal-line {
+    animation: plan-line 0.6s var(--ease) both;
+  }
+}
+
+@keyframes plan-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes plan-line {
+  from {
+    transform: rotate(-8deg) scaleX(0);
+  }
+  to {
+    transform: rotate(-8deg) scaleX(1);
+  }
+}

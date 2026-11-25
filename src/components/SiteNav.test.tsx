@@ -11,6 +11,17 @@ it("links firm, product, and live contact", () => {
     </MemoryRouter>,
   );
   expect(screen.getByRole("link", { name: "LIRN" })).toHaveAttribute("href", "/");
+  expect(screen.getByRole("link", { name: copy.navEmpresa })).toHaveAttribute(
+    "href",
+    "/#empresa",
+  );
+  expect(screen.getByRole("link", { name: copy.navPlan })).toHaveAttribute(
+    "href",
+    "/plan",
+  );
+  const links = screen.getAllByRole("link").map((el) => el.getAttribute("href"));
+  expect(links.indexOf("/#empresa")).toBeLessThan(links.indexOf("/plan"));
+  expect(links.indexOf("/plan")).toBeLessThan(links.indexOf("/torns"));
   expect(screen.getByRole("link", { name: copy.navTorns })).toHaveAttribute(
     "href",
     "/torns",

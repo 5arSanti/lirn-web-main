@@ -35,6 +35,14 @@ describe("App hash scrolling", () => {
     await waitFor(() => expect(scrollIntoView).toHaveBeenCalledOnce());
   });
 
+  it("opens the plan film", () => {
+    window.history.replaceState(null, "", "/lirn-web-main/plan");
+
+    render(<App />);
+
+    expect(screen.getByRole("main")).toHaveAccessibleName(copy.planAria);
+  });
+
   it("scrolls the TORNS contact form when loaded with its hash", async () => {
     window.history.replaceState(null, "", "/lirn-web-main/torns#contacto");
 

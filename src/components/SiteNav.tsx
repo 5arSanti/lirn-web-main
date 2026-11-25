@@ -3,7 +3,9 @@ import { copy } from "../content/copy";
 import { BrandMark } from "./BrandMark";
 
 export function SiteNav() {
-  const torns = useLocation().pathname.includes("torns");
+  const path = useLocation().pathname;
+  const torns = path.includes("torns");
+  const plan = path.includes("plan");
 
   return (
     <nav className="site-nav" aria-label="Principal">
@@ -12,6 +14,9 @@ export function SiteNav() {
       </Link>
       <div className="site-nav-links">
         <Link to="/#empresa">{copy.navEmpresa}</Link>
+        <Link to="/plan" className={plan ? "active" : undefined}>
+          {copy.navPlan}
+        </Link>
         <Link to="/torns">{copy.navTorns}</Link>
         <Link to="/torns#contacto">{copy.navContacto}</Link>
         <Link className="site-nav-cta" to="/torns#contacto">

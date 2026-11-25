@@ -56,6 +56,23 @@ describe("copy", () => {
     expect(copy.actActua).toBe("Actúa");
   });
 
+  it("names the plan film chrome", () => {
+    expect(copy.navPlan).toBe("Plan");
+    expect(copy.controlPlay).toBe("Reproducir");
+    expect(copy.controlPause).toBe("Pausa");
+    expect(copy.planOnePerson).toBe("Una persona. Un producto.");
+    expect(copy.planHorario).toBe("horario");
+    expect(copy.planWaiting).toBe("quien espera");
+    expect(copy.planNodeCamera).toBe("cámara");
+    expect(copy.planNodeCount).toBe("conteo");
+    expect(copy.planNodeRecommend).toBe("recomendación");
+    expect(copy.planGround).toBe("terreno");
+    expect(copy.planBuilding).toBe("edificio");
+    expect(copy.planHorizonShort).toBe("0–1 año");
+    expect(copy.planHorizonMid).toBe("1–3 años");
+    expect(copy.planHorizonLong).toBe("3–5 años");
+  });
+
   it("names TORNS team, empresa chapter, and live contact form chrome", () => {
     expect(copy.chapterEmpresa).toBe("Empresa");
     expect(copy.chapterContact).toBe("Contacto");
